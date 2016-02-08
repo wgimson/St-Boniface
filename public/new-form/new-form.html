@@ -1,0 +1,163 @@
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Form</a></li>
+    <li role="presentation"><a href="#/Dashboard/Submitted">Dashboard</a></li>
+  </ul>
+</div>		
+<div class="container">
+	<form>
+	  <fieldset class="form-group well form-fieldset">
+	  	<legend class="form-legend">Visitor Information</legend>
+	  	<div class="row">
+	  		<div class="col-md-6">
+		  		<label for="fName">First Name</label>
+		    	<input type="text" class="form-control txt-first-form" id="fName" placeholder="First Name">
+	  		</div>
+			<div class="col-md-6">
+			    <label for="lName">Last Name</label>
+			    <input type="text" class="form-control txt-first-form" id="lName" placeholder="Last Name">
+			</div>
+			<div class="col-md-6">
+			    <label for="mInitial">Middle Initial</label>
+			    <input type="text" class="form-control txt-first-form" id="mInitial" placeholder="Middle Initial">
+			</div>
+			<div class="col-md-6">
+			    <label for="requestDate">Date of Request</label>
+			    <input type="text" class="form-control txt-first-form" id="requestDate" placeholder="Date of Request">
+			</div>
+			<div class="col-md-6">
+			    <label for="title">Title</label>
+			    <input type="text" class="form-control txt-first-form" id="title" placeholder="Title (Mr., Mrs., Dr., etc.)">
+			</div>
+			<div class="col-md-6">
+			    <label for="occupation">Occupation</label>
+			    <input type="text" class="form-control txt-first-form" id="occupation" placeholder="Occupation">
+			</div>
+	  	</div>
+	  </fieldset>
+	  <fieldset class="form-group well form-fieldset">
+	  	<legend class="form-legend">Trip Information</legend>
+	  	<div class="row">
+	  		<div class="col-md-12">
+	  			<label for="txtPurposeOfTrip">Purpose of Trip</label>
+			    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="Purpose of Trip"></textarea>
+			</div>
+	  	</div>
+	  	<div class="row" ng-repeat="visitor in getVisitors() track by $index">
+	  		<div class="col-md-3">
+	  			<label for="groupMembers">Visitor and Members of Group (if applicable)</label>
+			    <input type="text" class="form-control" id="groupMembers" placeholder="Name">
+			</div>
+			<div class="col-md-3">
+	  			<label for="arrivalDateTime">Arrival Date and Time</label>
+			    <input type="text" class="form-control txt-first-form" id="arrivalDateTime" placeholder="Arrival Date and Time">
+			</div>
+			<div class="col-md-3">
+	  			<label for="departureDateAndTime">Departure Date and Time</label>
+			    <input type="text" class="form-control txt-first-form" id="departureDateAndTime" placeholder="Departure Date and Time">
+			</div>
+			<div class="col-md-3">
+	  			<label for="gender">Gender</label>
+			    <input type="text" class="form-control txt-first-form" id="gender" placeholder="Gender">
+			</div>
+	  	</div>		
+  		<div class="row">
+	  		<div class="col-md-12 btn-row">
+			    <button class="btn btn-primary btn-add-visitor" ng-click="addVisitor()">Add A Visitor</button>
+			</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-md-4">
+	  			<label>Will this trip be paid for by St. Boniface?</label>
+			</div>
+			<div class="col-md-4">
+				<label>
+			      <input type="radio" name="radioPadFor" id="radioPadFor" value="yes">
+			      Yes
+			    </label>
+			    <label>
+			      <input type="radio" name="radioPadFor" id="radioPadFor" value="no" checked>
+			      No
+			    </label>
+			</div>
+			<div class="col-md-4">
+				<label>
+			      <input type="radio" name="radioFirstTimeVisit" id="radioFirstTimeVisit" value="yes">
+			      Check if first time visitor to St. Boniface
+			    </label>
+			</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-md-6">
+	  			<label>Is this trip being requested by a St. Boniface staff member or unsolicited?</label>
+			</div>
+			<div class="col-md-6">
+				<label>
+			      <input type="radio" name="radioPadFor" id="radioPadFor" value="yes">
+			      Staff Request
+			    </label>
+			    <label>
+			      <input type="radio" name="radioPadFor" id="radioPadFor" value="no" checked>
+			      Unsolicited
+			    </label>
+			</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-md-3">
+		  		<label for="sName">Sponsor Name</label>
+		    	<input type="text" class="form-control txt-first-form" id="sName" placeholder="Sponsor Name (individual recommending the trip)">
+	  		</div>
+			<div class="col-md-3">
+			    <label for="sRelationship">Sponsor Relationship</label>
+			    <input type="text" class="form-control txt-first-form" id="sRelationship" placeholder="Sponsor Relationship (Employee, Board Member, etc.)">
+			</div>
+			<div class="col-md-3">
+				<div>
+		  			<label>Sponsor will accompany visitor or sponsor already in Haiti</label>
+				</div>
+				<div>
+					<label>
+				      <input type="radio" name="sInHaiti" id="sInHaiti" value="yes">
+				      Yes
+				    </label>
+				    <label>
+				      <input type="radio" name="sInHaiti" id="sInHaiti" value="no" checked>
+				      No
+				    </label>
+				</div>
+			</div>
+			<div class="col-md-3">
+			    <label for="sCell">Sponsor Cellphone</label>
+			    <input type="text" class="form-control txt-first-form" id="sCell" placeholder="4893-6195 Haiti Phone">
+			</div>
+	  	</div>
+	  </fieldset>
+
+
+	 
+	  <div class="radio">
+	    <label>
+	      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+	      Option one is this and that&mdash;be sure to include why it's great
+	    </label>
+	  </div>
+	  <div class="radio">
+	    <label>
+	      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+	      Option two can be something else and selecting it will deselect option one
+	    </label>
+	  </div>
+	  <div class="radio disabled">
+	    <label>
+	      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+	      Option three is disabled
+	    </label>
+	  </div>
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox"> Check me out
+	    </label>
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
