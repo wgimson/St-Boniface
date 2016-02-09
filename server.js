@@ -22,7 +22,7 @@ app.use('/api', backendRouter);
 app.use('/home', frontEndRouter);
 
 // CONNECT TO DB ==============================================================
-mongoose.connect('mongodb://localhost/St-Boniface');
+mongoose.connect(process.env.ST_BONIFACE_DB || 'mongodb://localhost/St-Boniface');
 
 // LISTEN ON SERVER 
 app.listen(port);
