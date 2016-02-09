@@ -1,6 +1,6 @@
 (function() {
 	var dataAccess = ['$http', function($http) {
-		var getApplications = function() {
+		var getAllApplications = function() {
 			return $http.get('../api/applications')
 						.then(function(response) {
 							return response.data;
@@ -9,8 +9,18 @@
 						});
 		};
 
+		var getApplicationsByStatus = function(status) {
+			return $http.get('../api/applications/' + status)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error retrieving applications: ' + err.data);
+						});
+		};
+
 		return {
-			getApplications: getApplications
+			getAllApplications: getAllApplications,
+			getApplicationsByStatus: getApplicationsByStatus
 		}
 	}];
 

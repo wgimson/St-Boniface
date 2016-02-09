@@ -59,3 +59,8 @@
 .btn-row {
   margin-top: 10px;
 }
+
+.application-panel {
+  width: 50%;
+  margin-left: 20%;
+}
