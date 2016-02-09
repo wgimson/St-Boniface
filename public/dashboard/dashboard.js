@@ -6,7 +6,7 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
   $routeProvider.when('/Dashboard/:DashboardTab', {
     templateUrl: 'dashboard/dashboard.html',
     controller: 'DashboardCtrl'
-  });
+  })
 }])
 
 .controller('DashboardCtrl', ['$scope', '$routeParams', 'dataAccess', function($scope, $routeParams, dataAccess) {
@@ -59,6 +59,11 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 
 		setHeadingAndDescription(status);
 	}
+
+	$scope.goToApplication = function(appId) {
+		window.location = '#/FormView/' + appId;
+	};
+
 
 	init();
 }]);

@@ -16,6 +16,7 @@ function getStatusCode(status) {
 			return 1;
 	}
 }
+
 exports.getAllApplications = function(req, res) {
 	var query = Application.find();
 	query.sort({ DateOfRequest: 1 })
@@ -37,7 +38,20 @@ exports.getApplicationsByStatus = function(req, res) {
 	     		console.log('Back End Error: ' + err.message);
 	     		return;
 	     	}
-	     	console.log('Returning Approved Applications from Back End');
+	     	console.log('Returning Applications by Status from Back End');
 	     	res.json(apps);
+	     });
+};
+
+
+exports.getApplicationById = function(req, res) {
+	var id = req.params.id;
+	Application.findOne({ _id: id }, function(err, app) {
+	     	if (err) {
+	     		console.log('Back End Error: ' + err.message);
+	     		return;
+	     	}
+	     	console.log('Returning Application by Id from Back End');
+	     	res.json(app);
 	     });
 };

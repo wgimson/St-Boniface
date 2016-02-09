@@ -8,8 +8,13 @@ router.get('/applications', function(req, res) {
 });
 
 /* GET APPLICATIONS BY STATUS */
-router.get('/applications/:status', function(req, res) {
+router.get('/applications/status/:status', function(req, res) {
 	return ApplicationsController.getApplicationsByStatus(req, res);
+});
+
+/* GET APPLICATION BY ID */
+router.get('/applications/id/:id', function(req, res) {
+	return ApplicationsController.getApplicationById(req, res);
 });
 
 module.exports = router;

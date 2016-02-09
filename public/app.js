@@ -5,7 +5,8 @@ angular.module('MyApp', [
   'ngRoute',
   'MyApp.LogIn',
   'MyApp.NewForm',
-  'MyApp.Dashboard'
+  'MyApp.Dashboard',
+  'MyApp.FormView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/LogIn'});

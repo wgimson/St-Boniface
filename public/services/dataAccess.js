@@ -10,7 +10,7 @@
 		};
 
 		var getApplicationsByStatus = function(status) {
-			return $http.get('../api/applications/' + status)
+			return $http.get('../api/applications/status/' + status)
 						.then(function(response) {
 							return response.data;
 						}, function(err) {
@@ -18,9 +18,19 @@
 						});
 		};
 
+		var getApplicationById = function(appId) {
+			return $http.get('../api/applications/id/' + appId)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error retrieving application by ID: ' + err.data);
+						});
+		}
+
 		return {
 			getAllApplications: getAllApplications,
-			getApplicationsByStatus: getApplicationsByStatus
+			getApplicationsByStatus: getApplicationsByStatus,
+			getApplicationById: getApplicationById
 		}
 	}];
 
