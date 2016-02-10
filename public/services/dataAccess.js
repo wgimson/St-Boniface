@@ -21,6 +21,7 @@
 		var getApplicationById = function(appId) {
 			return $http.get('../api/applications/id/' + appId)
 						.then(function(response) {
+							var unformattedDate = response.RequestDate;
 							return response.data;
 						}, function(err) {
 							console.log('Error retrieving application by ID: ' + err.data);

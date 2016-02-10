@@ -10,7 +10,7 @@
 	  		</div>
 			<div class="col-md-6">
 			    <label for="lName">Last Name</label>
-			    <input type="text" class="form-control txt-first-form" id="lName" placeholder="Last Name">
+			    <input type="text" class="form-control txt-first-form" id="lName" placeholder="{{ viewApp.LastName }}" readonly="true">
 			</div>
 			<div class="col-md-6">
 			    <label for="mInitial">Middle Initial</label>
@@ -18,7 +18,7 @@
 			</div>
 			<div class="col-md-6">
 			    <label for="requestDate">Date of Request</label>
-			    <input type="text" class="form-control txt-first-form" id="requestDate" placeholder="Date of Request">
+			    <input type="text" class="form-control txt-first-form" id="requestDate" placeholder="{{ viewApp.RequestDate }}" readonly="true">
 			</div>
 			<div class="col-md-6">
 			    <label for="title">Title</label>
@@ -35,7 +35,7 @@
 	  	<div class="row">
 	  		<div class="col-md-12">
 	  			<label for="txtPurposeOfTrip">Purpose of Trip</label>
-			    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="Purpose of Trip"></textarea>
+			    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="{{ viewApp.PurposeOfTrip }}" readonly="true"></textarea>
 			</div>
 	  	</div>
 	  	<div class="row" ng-repeat="visitor in getVisitors() track by $index">

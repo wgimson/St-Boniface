@@ -9,7 +9,7 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
   })
 }])
 
-.controller('DashboardCtrl', ['$scope', '$routeParams', 'dataAccess', function($scope, $routeParams, dataAccess) {
+.controller('DashboardCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', function($scope, $routeParams, dataAccess, dataFormatter) {
 	var init = function() {
 		var status = $routeParams.DashboardTab;
 		$scope.getApplicationsByStatus(status)
@@ -52,7 +52,11 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 	$scope.getApplicationsByStatus = function(status) {
 		dataAccess.getApplicationsByStatus(status)
 				  .then(function(applications) {
-				  	$scope.applications = applications;
+				  	applications.forEach(function(application) {
+					  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
+					  	$scope.applications = [];
+				  		$scope.applications.push(application);
+				  	});
 				  }, function(error) {
 				  	console.log('Could not retrieve submitted applications: ' + error);
 				  });
