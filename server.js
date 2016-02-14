@@ -6,7 +6,7 @@ var express = require('express'),
 	path = require('path'),
 	//db = require('./config/db');
 	backendRouter = require('./routes/backendRouter'),
-	frontEndRouter = require('./routes/frontEndRouter');
+	frontEndRouter = require('./routes/frontendRouter');
 
 // CONFIG =====================================================================
 var app = express();
