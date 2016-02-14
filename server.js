@@ -22,8 +22,8 @@ app.use('/api', backendRouter);
 app.use('/home', frontEndRouter);
 
 // CONNECT TO DB ==============================================================
-mongoose.connect(process.env.ST_BONIFACE_DB || 'mongodb://localhost/St-Boniface');
-
+//mongoose.connect(process.env.ST_BONIFACE_DB || 'mongodb://localhost/St-Boniface');
+mongoose.connect(process.env.ST_BONIFACE_DB || 'mongodb://heroku_gr1m9fs2:64a1sq5h5be18m0m9vv6454e0r@ds061355.mongolab.com:61355/heroku_gr1m9fs2')
 // LISTEN ON SERVER 
 app.listen(port);
 console.log('St. Boniface Application served on port: ' + port);
