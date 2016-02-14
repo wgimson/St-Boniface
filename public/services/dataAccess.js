@@ -28,10 +28,20 @@
 						});
 		}
 
+		var login = function(email, pass) {
+			return $http.post('../api/user', { email: email, password: pass })
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error logging user in: ' + err.data);
+						});
+		}
+
 		return {
 			getAllApplications: getAllApplications,
 			getApplicationsByStatus: getApplicationsByStatus,
-			getApplicationById: getApplicationById
+			getApplicationById: getApplicationById,
+			login: login
 		}
 	}];
 
