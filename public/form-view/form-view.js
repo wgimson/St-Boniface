@@ -17,10 +17,18 @@ angular.module('MyApp.FormView', ['ngRoute'])
 		dataAccess.getApplicationById(appId) 	
 			  .then(function(application) {
 			  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
+			  	$scope.welcomeUserBack();
 			  	$scope.viewApp = application;
 			  }, function(error) {
 			  	console.log('Could not retrieve application by id: ' + error);
 			  });
+	}
+
+	$scope.welcomeUserBack = function() {
+		if ($scope.uname) 
+			$scope.unameSet = true;
+		else 
+			$scope.unameSet = false;
 	}
 
 	$scope.viewApplication(appId);
