@@ -9,23 +9,32 @@ angular.module('MyApp.FormView', ['ngRoute'])
   });
 }])
 
-.controller('FormViewCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', function($scope, $routeParams, dataAccess, dataFormatter) {
-	var appId = $routeParams.AppId
-		$scope.uname = $routeParams.uname;
+.controller('FormViewCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', 'userSession', function($scope, $routeParams, dataAccess, dataFormatter, userSession) {
+	// PRIVATE
+	var appId = $routeParams.AppId;
 
+	function checkIsAdmin(isAdmin) {
+		if (isAdmin) {
+			$scope.isAdmin = true;
+		}
+	}
+
+	// PUBLIC
 	$scope.viewApplication = function(appId) {
 		dataAccess.getApplicationById(appId) 	
 			  .then(function(application) {
+			  	var user = userSession.getUserSession();
 			  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
-			  	$scope.welcomeUserBack();
+			  	$scope.welcomeUserBack(user);
+			  	$scope.isAdmin = user.IsAdmin;
 			  	$scope.viewApp = application;
 			  }, function(error) {
 			  	console.log('Could not retrieve application by id: ' + error);
 			  });
 	}
 
-	$scope.welcomeUserBack = function() {
-		if ($scope.uname) 
+	$scope.welcomeUserBack = function(user) {
+		if (user.UserName) 
 			$scope.unameSet = true;
 		else 
 			$scope.unameSet = false;

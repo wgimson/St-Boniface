@@ -9,7 +9,8 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
   })
 }])
 
-.controller('DashboardCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', function($scope, $routeParams, dataAccess, dataFormatter) {
+.controller('DashboardCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', 'userSession', function($scope, $routeParams, dataAccess, dataFormatter, userSession) {
+	// PRIVATE
 	var init = function() {
 		var status = $routeParams.DashboardTab;
 		$scope.getApplicationsByStatus(status)
@@ -40,6 +41,10 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 		}
 	}
 
+
+	// PUBLIC
+	$scope.isAdmin = false;
+
 	$scope.getAllApplications = function () {
 		dataAccess.getAllApplications()
 			 	  .then(function(applications) {
@@ -52,6 +57,8 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 	$scope.getApplicationsByStatus = function(status) {
 		dataAccess.getApplicationsByStatus(status)
 				  .then(function(applications) {
+				  	var userSession = userSession.getUserSession();
+				  	$scope.isAdmin = userSession.IsAdmin;
 				  	applications.forEach(function(application) {
 					  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
 					  	$scope.applications = [];
