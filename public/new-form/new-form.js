@@ -11,11 +11,6 @@ angular.module('MyApp.NewForm', ['ngRoute'])
 
 .controller('NewFormCtrl', ['$scope', function($scope) {
 	// PRIVATE 
-	function getFormVals() {
-
-	}
-
-
 
 	// PUBLIC 
 	$scope.Visitors = 1;
