@@ -9,16 +9,19 @@ angular.module('MyApp.LogIn', ['ngRoute'])
   });
 }])
 
-.controller('LogInCtrl', ['$scope', '$location', 'dataAccess', function($scope, $location, dataAccess) {
+.controller('LogInCtrl', ['$scope', '$location', 'dataAccess', 'userSession', function($scope, $location, dataAccess, userSession) {
 	$scope.login = function() {
 		var email = $scope.email,
 		pass = $scope.password;
 		dataAccess.login(email, pass) 
 			      .then(function(loginObj) {
 			      	if (loginObj) {
-			      		var formId = loginObj.FormKey,
-			      		uname = loginObj.UName;
-			      		$location.url('FormView/' + formId + '?uname=' + uname);
+			      		userSession.setUserLoginInfo(loginObj);
+			      		if (loginObj.IsAdmin) {
+							$location.url('Dashboard/Submitted');
+			      		} else {
+			      			$location.url('FormView/' + loginObj.FormKey);
+			      		}
 			      	}
 			      	else {
 						$location.url('NewForm');

@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "st-boniface",
+  "description": "Vistor application for St. Boniface Foundation",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/wgimson/St-Boniface",
   "license": "MIT",
   "private": true,
   "dependencies": {
