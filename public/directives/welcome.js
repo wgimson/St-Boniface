@@ -5,8 +5,7 @@
 			templateUrl: '../partials/welcome.html',
 			replace: true,
 			scope: {
-				uname: '@',
-				unameSet: '='
+				uname: '@'
 			}
 		}
 	}

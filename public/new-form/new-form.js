@@ -10,13 +10,36 @@ angular.module('MyApp.NewForm', ['ngRoute'])
 }])
 
 .controller('NewFormCtrl', ['$scope', function($scope) {
-	$scope.visitors = 1;
-	
+	// PRIVATE 
+	function getFormVals() {
+
+	}
+
+
+
+	// PUBLIC 
+	$scope.Visitors = 1;
+
 	$scope.getVisitors = function() {
 		return new Array($scope.visitors);
 	}
 
 	$scope.addVisitor = function() {
 		$scope.visitors++;
+	}
+
+	$scope.submitForApproval = function() {
+		var frm = {
+			FirstName: $scope.FirstName,
+			LastName: $scope.LastName,
+			RequestDate: $scope.RequestDate,
+			CellPhone: $scope.CellPhone,
+			Email: $scope.Email,
+			Purpose: $scope.Purpose,
+			NumberInTrip: $scope.Visitors,
+			AppStatus: 1
+		}
+
+		return frm;
 	}
 }]);
