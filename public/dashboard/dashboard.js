@@ -12,8 +12,8 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 .controller('DashboardCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', 'userSession', function($scope, $routeParams, dataAccess, dataFormatter, userSession) {
 	// PRIVATE
 	var init = function() {
-		var status = $routeParams.DashboardTab;
-		$scope.getApplicationsByStatus(status)
+		$scope.status = $routeParams.DashboardTab;
+		$scope.getApplicationsByStatus($scope.status)
 	}
 
 	var setHeadingAndDescription = function(status) {
@@ -57,8 +57,8 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 	$scope.getApplicationsByStatus = function(status) {
 		dataAccess.getApplicationsByStatus(status)
 				  .then(function(applications) {
-				  	var userSession = userSession.getUserSession();
-				  	$scope.isAdmin = userSession.IsAdmin;
+				  	var user = userSession.getUserSession();
+				  	$scope.isAdmin = user.IsAdmin;
 				  	applications.forEach(function(application) {
 					  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
 					  	$scope.applications = [];

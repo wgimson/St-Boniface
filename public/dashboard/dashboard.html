@@ -1,4 +1,4 @@
-<nav-bar></nav-bar>
+<!--<nav-bar></nav-bar>-->
 <div class="container">
   <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="#/Dashboard/Submitted">Submitted</a></li>
@@ -29,5 +29,8 @@
 		<td ng-bind="app.RequestDate"></td>
 		<td><button class="btn btn-primary" ng-click="goToApplication(app._id)">View</button></td>
 	</tr>
+  <tr>
+    <td colspan="4"><dashboard-button status="{{ status }}"></dashboard-button></td>
+  </tr>
   </table>
 </div>

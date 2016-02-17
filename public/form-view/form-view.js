@@ -20,13 +20,16 @@ angular.module('MyApp.FormView', ['ngRoute'])
 	}
 
 	// PUBLIC
+	$scope.uname = 'User';
+
 	$scope.viewApplication = function(appId) {
 		dataAccess.getApplicationById(appId) 	
 			  .then(function(application) {
 			  	var user = userSession.getUserSession();
 			  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
-			  	$scope.welcomeUserBack(user);
+			  	//$scope.welcomeUserBack(user);
 			  	$scope.isAdmin = user.IsAdmin;
+			  	$scope.uname = user.UserName;
 			  	$scope.viewApp = application;
 			  }, function(error) {
 			  	console.log('Could not retrieve application by id: ' + error);
