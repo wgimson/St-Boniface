@@ -6,27 +6,32 @@
 				case 'Submitted':
 					return {
 						text: 'Approve',
-						displayButton: true
+						displayButton: true,
+						displayRejectButton: true
 					};
 				case 'Approved': 
 					return {
 						text: '',
-						displayButton: false
+						displayButton: false,
+						displayRejectButton: false
 					};
 				case 'Completed': 
 					return {
 						text: 'Finalize',
-						displayButton: true
+						displayButton: true,
+						displayRejectButton: false
 					};
 				case 'Finalized':
 					return {
 						text: '',
-						displayButton: false
+						displayButton: false,
+						displayRejectButton: false
 					};
 				case 'Rejected':
 					return {
 						text: '',
-						displayButton: false
+						displayButton: false,
+						displayRejectButton: false
 					};
 			}
 		}
@@ -43,6 +48,7 @@
 				var adminAction = getAdminAction(scope.status);
 				scope.actionButtonText = adminAction.text;
 				scope.displayActionButton = adminAction.displayButton;
+				scope.displayRejectButton = adminAction.displayRejectButton;
 			}
 		}
 	}

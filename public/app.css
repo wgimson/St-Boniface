@@ -68,3 +68,8 @@
 #welcome-header {
   text-align: center;
 }
+
+.btn-dash {
+  float: right;
+  margin-left: 10px;
+}

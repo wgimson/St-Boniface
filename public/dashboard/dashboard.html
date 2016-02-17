@@ -17,20 +17,17 @@
   </div>
   <!-- Table -->
   <table class="table">
-	<tr>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Request Date</th>
-		<th></th>
-	</tr>
-	<tr ng-repeat="app in applications">
-		<td ng-bind="app.FirstName"></td>
-		<td ng-bind="app.LastName"></td>
-		<td ng-bind="app.RequestDate"></td>
-		<td><button class="btn btn-primary" ng-click="goToApplication(app._id)">View</button></td>
-	</tr>
-  <tr>
-    <td colspan="4"><dashboard-button status="{{ status }}"></dashboard-button></td>
-  </tr>
+  	<tr>
+  		<th>First Name</th>
+  		<th>Last Name</th>
+  		<th>Request Date</th>
+  		<th></th>
+  	</tr>
+  	<tr ng-repeat="app in applications">
+  		<td ng-bind="app.FirstName"></td>
+  		<td ng-bind="app.LastName"></td>
+  		<td ng-bind="app.RequestDate"></td>
+  		<td><button class="btn btn-primary" ng-click="goToApplication(app._id)">View</button></td>
+  	</tr>
   </table>
 </div>

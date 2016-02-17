@@ -6,6 +6,10 @@ angular.module('MyApp.FormView', ['ngRoute'])
   $routeProvider.when('/FormView/:AppId', {
   	templateUrl: 'form-view/form-view.html',
   	controller: 'FormViewCtrl'
+  }),
+  $routeProvider.when('/FormView/:AppId/Status/:status', {
+  	templateUrl: 'form-view/form-view.html',
+  	controller: 'FormViewCtrl'
   });
 }])
 
@@ -20,7 +24,8 @@ angular.module('MyApp.FormView', ['ngRoute'])
 	}
 
 	// PUBLIC
-	$scope.uname = 'User';
+	$scope.uname = 'User',
+	$scope.status = $routeParams.status;
 
 	$scope.viewApplication = function(appId) {
 		dataAccess.getApplicationById(appId) 	
@@ -29,6 +34,7 @@ angular.module('MyApp.FormView', ['ngRoute'])
 			  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
 			  	//$scope.welcomeUserBack(user);
 			  	$scope.isAdmin = user.IsAdmin;
+			  	$scope.status = application.AppStatus;
 			  	$scope.uname = user.UserName;
 			  	$scope.viewApp = application;
 			  }, function(error) {

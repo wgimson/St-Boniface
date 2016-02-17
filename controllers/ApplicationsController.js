@@ -43,6 +43,18 @@ exports.getApplicationsByStatus = function(req, res) {
 	     });
 };
 
+exports.getApplicationStatusById = function(req, res) {
+	var appId = req.params.id;
+	var query = Applications.findOne({ _id: id }).select('AppStatus');
+	query.exec(function (err, status) {
+        if (err) {
+        	console.log('Error returning app status: ' + err.message);
+	     	return;
+		} 
+        res.json(status);
+    });
+}
+
 
 exports.getApplicationById = function(req, res) {
 	var id = req.params.id;

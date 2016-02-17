@@ -59,7 +59,7 @@
 	  	</div>		
   		<div class="row">
 	  		<div class="col-md-12 btn-row">
-			    <button class="btn btn-primary btn-add-visitor" ng-click="addVisitor()">Add A Visitor</button>
+			    <button ng-hide="isAdmin" class="btn btn-primary btn-add-visitor" ng-click="addVisitor()">Add A Visitor</button>
 			</div>
 	  	</div>
 	  	<div class="row">
@@ -154,6 +154,6 @@
 	      <input type="checkbox"> Check me out
 	    </label>
 	  </div>
-	  <button type="submit" class="btn btn-primary">Submit</button>
+	  <dashboard-button status="{{ status }}"></dashboard-button>
 	</form>
 </div>

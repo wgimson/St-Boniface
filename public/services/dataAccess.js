@@ -18,6 +18,15 @@
 						});
 		};
 
+		var getApplicationsStatusById = function(id) {
+			return $http.get('../api/applications/status/id/' + id)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error retrieving application status: ' + err.data);
+						});
+		};
+
 		var getApplicationById = function(appId) {
 			return $http.get('../api/applications/id/' + appId)
 						.then(function(response) {

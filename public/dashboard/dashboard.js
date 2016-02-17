@@ -44,11 +44,13 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 
 	// PUBLIC
 	$scope.isAdmin = false;
+	$scope.appCount = 0;
 
 	$scope.getAllApplications = function () {
 		dataAccess.getAllApplications()
 			 	  .then(function(applications) {
 			 	  	$scope.applications = applications;
+			 	  	$scope.appCount = $scope.applications.length;
 			 	  }, function(error) {
 			 	  	console.log('Could not retrieve applications: ' + error);
 			 	  });
@@ -63,6 +65,7 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 					  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
 					  	$scope.applications = [];
 				  		$scope.applications.push(application);
+				  		$scope.appCount++;
 				  	});
 				  }, function(error) {
 				  	console.log('Could not retrieve submitted applications: ' + error);
@@ -72,7 +75,7 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 	}
 
 	$scope.goToApplication = function(appId) {
-		window.location = '#/FormView/' + appId;
+		window.location = '#/FormView/' + appId + '/Status/' + $scope.status;
 	};
 
 
