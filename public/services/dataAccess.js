@@ -46,11 +46,39 @@
 						});
 		}
 
+		var approveApplication = function(appId) {
+			return $http.post('../api/applications/approve/id/' + appId)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error approving application: ' + err.data);
+						});
+		}
+
+		var rejectApplication = function(appId) {
+			return $http.post('../api/applications/reject/id/' + id)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error rejecting application: ' + err.data);
+						});
+		}
+
+		var finalizeApplication = function(appId) {
+			return $http.post('../api/applications/finalize/id/' + id)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error finalizing application: ' + err.data);
+						});
+		}
+
 		return {
 			getAllApplications: getAllApplications,
 			getApplicationsByStatus: getApplicationsByStatus,
 			getApplicationById: getApplicationById,
-			login: login
+			login: login,
+			approveApplication: approveApplication
 		}
 	}];
 

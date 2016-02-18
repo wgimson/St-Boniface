@@ -13,7 +13,7 @@ router.get('/applications/status/:status', function(req, res) {
 	return ApplicationsController.getApplicationsByStatus(req, res);
 });
 
-/* GET APPLICATIONS BY STATUS */
+/* GET APPLICATION STATUS BY ID */
 router.get('/applications/status/id/:id', function(req, res) {
 	return ApplicationsController.getApplicationStatusById(req, res);
 });
@@ -21,6 +21,11 @@ router.get('/applications/status/id/:id', function(req, res) {
 /* GET APPLICATION BY ID */
 router.get('/applications/id/:id', function(req, res) {
 	return ApplicationsController.getApplicationById(req, res);
+});
+
+/* APPROVE APPLICATION */
+router.post('/applications/approve/id/:id', function(req, res) {
+	return ApplicationsController.approveApplication(req, res);
 });
 
 /* GET USER BY USERNAME AND PASSWORD */

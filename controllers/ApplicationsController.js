@@ -67,3 +67,15 @@ exports.getApplicationById = function(req, res) {
 	     	res.json(app);
 	     });
 };
+
+exports.approveApplication = function(req, res) {
+	var id = req.params.id;
+	Application.update({ _id: id}, { $set: { AppStatus: 2 }}, function(err) {
+	     	if (err) {
+	     		console.log('Back End Error: ' + err.message);
+	     		return;
+	     	}
+	     	console.log('application approved');
+	     	return;
+	     });
+}

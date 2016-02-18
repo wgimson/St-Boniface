@@ -15,8 +15,6 @@ angular.module('MyApp.FormView', ['ngRoute'])
 
 .controller('FormViewCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', 'userSession', function($scope, $routeParams, dataAccess, dataFormatter, userSession) {
 	// PRIVATE
-	var appId = $routeParams.AppId;
-
 	function checkIsAdmin(isAdmin) {
 		if (isAdmin) {
 			$scope.isAdmin = true;
@@ -26,6 +24,7 @@ angular.module('MyApp.FormView', ['ngRoute'])
 	// PUBLIC
 	$scope.uname = 'User',
 	$scope.status = $routeParams.status;
+	$scope.appId = $routeParams.AppId;
 
 	$scope.viewApplication = function(appId) {
 		dataAccess.getApplicationById(appId) 	
@@ -49,5 +48,5 @@ angular.module('MyApp.FormView', ['ngRoute'])
 			$scope.unameSet = false;
 	}
 
-	$scope.viewApplication(appId);
+	$scope.viewApplication($scope.appId);
 }]);
