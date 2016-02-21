@@ -6,9 +6,13 @@
 		<th></th>
 	</tr>
 	<tr>
-		<td colspan="4">
-			<button class="btn btn-primary btn-dash" ng-show="displayActionButton" ng-click="approveFunction()">{{ actionButtonText }}</button>
-			<button class="btn btn-primary btn-dash" ng-show="displayRejectButton" ng-click="rejectFunction()">Reject</button>
+		<td colspan="3"></td>
+		<td style="width: 18%;">
+			<!--<button class="btn btn-primary btn-dash" ng-show="displayActionButton" ng-click="approveFunction()">{{ actionButtonText }}</button>
+			<button class="btn btn-primary btn-dash" ng-show="displayRejectButton" ng-click="rejectFunction()">Reject</button>-->
+
+			<button class="btn btn-primary btn-dash" ng-show="displayAffirmButton" ng-click="affirmFunc()">{{ affirmButtonTxt }}</button>
+			<button class="btn btn-danger btn-dash" ng-show="displayDenyButton" ng-click="denyFunc()">{{ denyButtonTxt }}</button>
 		</td>
 	</tr>
 </table

@@ -8,6 +8,10 @@
 			return user;
 		}
 
+		var isAdmin = function() {
+			return user.IsAdmin;
+		}
+
 		var setUserLoginInfo = function(userData) {
 			user.UserName = userData.UName,
 			user.Password = userData.Pass,
@@ -22,7 +26,8 @@
 		return {
 			getUserSession: getUserSession,
 			setUserLoginInfo: setUserLoginInfo,
-			clearUserSession: clearUserSession
+			clearUserSession: clearUserSession,
+			isAdmin: isAdmin
 		};
 	};
 

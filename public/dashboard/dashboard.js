@@ -45,7 +45,8 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 	// PUBLIC
 	$scope.isAdmin = false;
 	$scope.appCount = 0;
-
+	$scope.applications = [];
+	
 	$scope.getAllApplications = function () {
 		dataAccess.getAllApplications()
 			 	  .then(function(applications) {
@@ -57,13 +58,13 @@ angular.module('MyApp.Dashboard', ['ngRoute'])
 	};
 
 	$scope.getApplicationsByStatus = function(status) {
+		$scope.applications = [];
 		dataAccess.getApplicationsByStatus(status)
 				  .then(function(applications) {
 				  	var user = userSession.getUserSession();
 				  	$scope.isAdmin = user.IsAdmin;
 				  	applications.forEach(function(application) {
 					  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
-					  	$scope.applications = [];
 				  		$scope.applications.push(application);
 				  		$scope.appCount++;
 				  	});

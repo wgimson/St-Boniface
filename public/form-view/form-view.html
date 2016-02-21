@@ -7,11 +7,11 @@
 	  	<div class="row">
 	  		<div class="col-md-6">
 		  		<label for="fName">First Name</label>
-		    	<input type="text" class="form-control txt-first-form" id="fName" placeholder="{{ viewApp.FirstName }}" readonly="true">
+		    	<input type="text" class="form-control txt-first-form" id="fName" placeholder="{{ viewApp.FirstName }}" readonly="true" ng-model="viewApp.FirstName">
 	  		</div>
 			<div class="col-md-6">
 			    <label for="lName">Last Name</label>
-			    <input type="text" class="form-control txt-first-form" id="lName" placeholder="{{ viewApp.LastName }}" readonly="true">
+			    <input type="text" class="form-control txt-first-form" id="lName" placeholder="{{ viewApp.LastName }}" readonly="true" ng-model="viewApp.LastName">
 			</div>
 			<div class="col-md-6">
 			    <label for="mInitial">Middle Initial</label>
@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-md-6">
 			    <label for="requestDate">Date of Request</label>
-			    <input type="text" class="form-control txt-first-form" id="requestDate" placeholder="{{ viewApp.RequestDate }}" readonly="true">
+			    <input type="text" class="form-control txt-first-form" id="requestDate" placeholder="{{ viewApp.RequestDate }}" readonly="true" ng-model="viewApp.RequestDate">
 			</div>
 			<div class="col-md-6">
 			    <label for="title">Title</label>
@@ -36,7 +36,7 @@
 	  	<div class="row">
 	  		<div class="col-md-12">
 	  			<label for="txtPurposeOfTrip">Purpose of Trip</label>
-			    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="{{ viewApp.PurposeOfTrip }}" readonly="true"></textarea>
+			    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="{{ viewApp.PurposeOfTrip }}" readonly="true" ng-model="viewApp.PurposeOfTrip"></textarea>
 			</div>
 	  	</div>
 	  	<div class="row" ng-repeat="visitor in getVisitors() track by $index">
@@ -124,36 +124,10 @@
 			</div>
 			<div class="col-md-3">
 			    <label for="sCell">Sponsor Cellphone</label>
-			    <input type="text" class="form-control txt-first-form" id="sCell" placeholder="4893-6195 Haiti Phone">
+			    <input type="text" class="form-control txt-first-form" id="sCell" placeholder="4893-6195 Haiti Phone" ng-model="viewApp.Email">
 			</div>
 	  	</div>
 	  </fieldset>
-
-
-	 
-	  <div class="radio">
-	    <label>
-	      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-	      Option one is this and that&mdash;be sure to include why it's great
-	    </label>
-	  </div>
-	  <div class="radio">
-	    <label>
-	      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-	      Option two can be something else and selecting it will deselect option one
-	    </label>
-	  </div>
-	  <div class="radio disabled">
-	    <label>
-	      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-	      Option three is disabled
-	    </label>
-	  </div>
-	  <div class="checkbox">
-	    <label>
-	      <input type="checkbox"> Check me out
-	    </label>
-	  </div>
-	  <dashboard-button status="{{ status }}" app-id="{{ appId }}"></dashboard-button>
+	  <dashboard-button affirm-button-txt="{{ affirmButtonTxt }}" deny-button-txt="{{ denyButtonTxt }}" display-affirm-button="displayAffirmButton" display-deny-button="displayDenyButton" affirm-func="affirmFunc()" deny-func="denyFunc()" status="{{ status }}" app-id="{{ appId }}" is-admin="isAdmin"></dashboard-button>
 	</form>
 </div>
