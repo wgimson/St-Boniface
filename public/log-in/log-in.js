@@ -27,7 +27,7 @@ angular.module('MyApp.LogIn', ['ngRoute'])
 						$location.url('NewForm');
 			      	}
 			      }, function(err) {
-			      	console.log('Could not retrieve applicant login: ' + error);
+			      	console.log('Could not retrieve applicant login: ' + err);
 			      });
 	};
 }]);

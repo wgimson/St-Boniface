@@ -15,9 +15,6 @@
 				affirmFunc: '&',
 				denyFunc: '&',
 				appId: '@'
-			},
-			link: function(scope, element, attrs) {
-				console.log('hi');
 			}
 		}
 	}];

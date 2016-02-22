@@ -68,6 +68,36 @@ exports.getApplicationById = function(req, res) {
 	     });
 };
 
+exports.submitApplication = function(req, res) {
+	var FirstName = req.body.FirstName,
+	    LastName = req.body.LastName,
+	    RequestDate = req.body.RequestDate,
+	    CellPhone = req.body.CellPhone,
+	    Email = req.body.Email,
+	    Purpose = req.body.Purpose,
+	    NumberInTrip = req.body.NumberInTrip,
+	    AppStatus = req.body.AppStatus;
+
+	Application.create({
+					FirstName: FirstName,
+				    LastName: LastName,
+				    RequestDate: RequestDate,
+				    CellPhone: CellPhone,
+				    Email: Email,
+				    Purpose: Purpose,
+				    NumberInTrip: NumberInTrip,
+				    AppStatus: AppStatus
+				},
+				function(err, app) {
+			     	if (err) {
+			     		console.log('Back End Error: ' + err.message);
+			     		res.status(500).json(err);
+			     	}
+			     	console.log('application created');
+			     	res.status(200).json(app);
+				});
+}; 
+
 exports.approveApplication = function(req, res) {
 	var id = req.params.id;
 	Application.update({ _id: id}, { $set: { AppStatus: 2 }}, function(err) {

@@ -73,3 +73,8 @@
   //float: right;
   margin-left: 10px;
 }
+
+.success-msg {
+  text-align: center;
+  font-size: 30px;
+}

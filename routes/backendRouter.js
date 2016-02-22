@@ -33,4 +33,14 @@ router.post('/user/', function(req, res) {
 	return LoginController.getUserByNameAndPass(req, res);
 });
 
+/* GET USER BY USERNAME AND PASSWORD */
+router.post('/user/register', function(req, res) {
+	return LoginController.registerUser(req, res);
+});
+
+/* SUBMIT APPLICATION */
+router.post('/applications/submit', function(req, res) {
+	return ApplicationsController.submitApplication(req, res);
+})
+
 module.exports = router;

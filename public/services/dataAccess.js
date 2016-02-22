@@ -46,6 +46,15 @@
 						});
 		}
 
+		var submitApplication = function(application) {
+			return $http.post('../api/applications/submit', application)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error approving application: ' + err.data);
+						});
+		}
+
 		var approveApplication = function(appId) {
 			return $http.post('../api/applications/approve/id/' + appId)
 						.then(function(response) {
@@ -62,7 +71,7 @@
 						}, function(err) {
 							console.log('Error rejecting application: ' + err.data);
 						});
-		}
+		};
 
 		var finalizeApplication = function(appId) {
 			return $http.post('../api/applications/finalize/id/' + id)
@@ -71,15 +80,26 @@
 						}, function(err) {
 							console.log('Error finalizing application: ' + err.data);
 						});
-		}
+		};
+
+		var registerUser = function(user) {
+			return $http.post('../api/user/register', user)
+						.then(function(response) {
+							return response.data;
+						}, function(err) {
+							console.log('Error registering user: ' + err.data);
+						});
+		};
 
 		return {
-			getAllApplications: getAllApplications,
+			getAllApplications:      getAllApplications,
 			getApplicationsByStatus: getApplicationsByStatus,
-			getApplicationById: getApplicationById,
-			login: login,
-			approveApplication: approveApplication
-		}
+			getApplicationById:      getApplicationById,
+			login: 					 login,
+			approveApplication: 	 approveApplication,
+			submitApplication: 		 submitApplication,
+			registerUser: 			 registerUser
+		};
 	}];
 
 	var module = angular.module('MyApp.Dashboard');
