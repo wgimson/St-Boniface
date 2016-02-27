@@ -11,6 +11,9 @@ var userSchema = new Schema({
 	IsAdmin: {
 		type: Boolean
 	},
+	Email: {
+		type: String
+	},
 	FormKey: {
 		type: String
 	}

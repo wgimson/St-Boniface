@@ -20,6 +20,7 @@
 		$scope.displayRegisterPartial = false,
 		$scope.formKey = '',
 		$scope.hideForm= false;
+		$scope.displayRegisteredModal = false;
 
 		$scope.getVisitors = function() {
 			return new Array($scope.visitors);
@@ -31,6 +32,7 @@
 
 		$scope.registerNewUser = function() {
 			var newUser = JSON.stringify({
+				UName: $scope.email,
 				Email: $scope.email,
 				Password: $scope.password,
 				FormKey: $scope.formKey
@@ -42,6 +44,11 @@
 						  	userSession.setUserLoginInfo(user);
 						  	$scope.successMsg = 'You Have Successfully Registered!';
 						  	$scope.displaySuccessMsg = true;
+						  	$scope.displayRegisterPartial = false;
+						  	$scope.modalTitle = 'REGISTRATION';
+						  	$scope.modalMessage = 'You Have Successfully Registered';
+						  	$scope.displayRegisteredModal = true;
+						  	$scope.displayModal();
 						  }, function(err) {
 						  	console.log('front end error registering user: ' + err);
 						  });

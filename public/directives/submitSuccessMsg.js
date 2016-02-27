@@ -7,9 +7,6 @@
 			scope: {
 				displaySuccessMsg: '=',
 				msg: '@'
-			},
-			link: function() {
-				console.log('debug check');
 			}
 		}
 	}

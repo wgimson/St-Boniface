@@ -15,11 +15,12 @@ exports.getUserByNameAndPass = function(req, res) {
 
 exports.registerUser = function(req, res) {
 		var Email    = req.body.Email,
+		    UName    = req.body.UName,
 	   	    Password = req.body.Password,
 	   	    FormKey  = req.body.FormKey;
 
 	User.create({
-			UName: Email,
+			UName: UName,
 		    Pass: Password,
 		    Email: Email,
 		    IsAdmin: false,

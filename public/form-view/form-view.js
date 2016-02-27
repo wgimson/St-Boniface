@@ -204,6 +204,8 @@
 		$scope.status = $routeParams.status;
 		$scope.appId = $routeParams.AppId;
 		$scope.isAdmin = userSession.isAdmin();
+		$scope.displayFrmStatus = true;
+		$scope.frmStatus = 'Your form is pending approval';
 
 		$scope.viewApplication = function(appId) {
 			dataAccess.getApplicationById(appId) 	
