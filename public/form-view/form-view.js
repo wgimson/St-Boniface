@@ -135,13 +135,13 @@
 		}
 
 		function approveApplication() {
-			alert('approval for application: ' + $scope.appId);
-			/*dataAccess.approveApplication(applicationId)
-				      .then(function(reponse) {
+			dataAccess.approveApplication($scope.appId)
+				      .then(function(newStatus) {
 				      	console.log('app approved');
+				      	$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
 				      }, function(err) {
 				      	console.log('error');
-				      });*/
+				      });
 		}
 
 		function rejectApplication() {
@@ -205,13 +205,11 @@
 		$scope.appId = $routeParams.AppId;
 		$scope.isAdmin = userSession.isAdmin();
 		$scope.displayFrmStatus = true;
-		$scope.frmStatus = 'Your form is pending approval';
 
 		$scope.viewApplication = function(appId) {
 			dataAccess.getApplicationById(appId) 	
 				  .then(function(application) {
-
-
+				  	$scope.frmStatus = appUtilities.resolveAppStatusMessage(application.AppStatus);
 				  	var user = userSession.getUserSession();
 				  	application.RequestDate = dataFormatter.formatDate(application.RequestDate);
 				  	$scope.status = application.AppStatus;

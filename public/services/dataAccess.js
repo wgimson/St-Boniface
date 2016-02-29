@@ -21,7 +21,7 @@
 		var getApplicationsStatusById = function(id) {
 			return $http.get('../api/applications/status/id/' + id)
 						.then(function(response) {
-							return response.data;
+							return response.data.AppStatus;
 						}, function(err) {
 							console.log('Error retrieving application status: ' + err.data);
 						});
@@ -58,7 +58,7 @@
 		var approveApplication = function(appId) {
 			return $http.post('../api/applications/approve/id/' + appId)
 						.then(function(response) {
-							return response.data;
+							return response.data.newStatus;
 						}, function(err) {
 							console.log('Error approving application: ' + err.data);
 						});
@@ -92,13 +92,14 @@
 		};
 
 		return {
-			getAllApplications:      getAllApplications,
-			getApplicationsByStatus: getApplicationsByStatus,
-			getApplicationById:      getApplicationById,
-			login: 					 login,
-			approveApplication: 	 approveApplication,
-			submitApplication: 		 submitApplication,
-			registerUser: 			 registerUser
+			getAllApplications:        getAllApplications,
+			getApplicationsByStatus:   getApplicationsByStatus,
+			getApplicationById:        getApplicationById,
+			login: 					   login,
+			approveApplication: 	   approveApplication,
+			submitApplication: 		   submitApplication,
+			registerUser: 			   registerUser,
+			getApplicationsStatusById: getApplicationsStatusById
 		};
 	}];
 
