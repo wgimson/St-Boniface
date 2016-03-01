@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Vistor application for St. Boniface Foundation",
   "main": "server.js",
-  "repository": "https://github.com/wgimson/St-Boniface",
   "license": "MIT",
   "scripts": {
     "postinstall": "bower install",
@@ -27,7 +26,6 @@
     "morgan": "^1.6.1",
     "node": "0.0.0",
     "path": "^0.12.7",
-    "serve-favicon": "^2.3.0",
-    "start": "http-server -a localhost -p 8000 -c-1"
+    "serve-favicon": "^2.3.0"
   }
 }
