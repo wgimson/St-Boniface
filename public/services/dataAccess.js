@@ -73,10 +73,19 @@
 						});
 		};
 
-		var finalizeApplication = function(appId) {
-			return $http.post('../api/applications/finalize/id/' + id)
+		var completeApplication = function(appId) {
+			return $http.post('../api/applications/complete/id/' + appId)
 						.then(function(response) {
-							return response.data;
+							return response.data.newStatus;
+						}, function(err) {
+							console.log('Error rejecting application: ' + err.data);
+						});
+					};
+
+		var finalizeApplication = function(appId) {
+			return $http.post('../api/applications/finalize/id/' + appId)
+						.then(function(response) {
+							return response.data.newStatus;
 						}, function(err) {
 							console.log('Error finalizing application: ' + err.data);
 						});
@@ -99,7 +108,9 @@
 			approveApplication: 	   approveApplication,
 			submitApplication: 		   submitApplication,
 			registerUser: 			   registerUser,
-			getApplicationsStatusById: getApplicationsStatusById
+			getApplicationsStatusById: getApplicationsStatusById,
+			completeApplication: 	   completeApplication,
+			finalizeApplication:       finalizeApplication
 		};
 	}];
 

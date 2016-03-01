@@ -108,4 +108,28 @@ exports.approveApplication = function(req, res) {
 	     	console.log('application approved');
 	     	res.status(200).json({ newStatus: 2});
 	     });
-}
+};
+
+exports.completeApplication = function(req, res) {
+	var id = req.params.id;
+	Application.update({ _id: id}, { $set: { AppStatus: 3 }}, function(err, app) {
+	     	if (err) {
+	     		console.log('Back End Error: ' + err.message);
+	     		res.status(500).json(err);
+	     	}
+	     	console.log('application completed');
+	     	res.status(200).json({ newStatus: 3});
+	     });
+};
+
+exports.finalizeApplication = function(req, res) {
+	var id = req.params.id;
+	Application.update({ _id: id}, { $set: { AppStatus: 4 }}, function(err, app) {
+	     	if (err) {
+	     		console.log('Back End Error: ' + err.message);
+	     		res.status(500).json(err);
+	     	}
+	     	console.log('application finalized');
+	     	res.status(200).json({ newStatus: 4});
+	     });
+};

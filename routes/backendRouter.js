@@ -43,4 +43,14 @@ router.post('/applications/submit', function(req, res) {
 	return ApplicationsController.submitApplication(req, res);
 })
 
+/* COMPLETE APPLICATION */
+router.post('/applications/complete/id/:id', function(req, res) {
+	return ApplicationsController.completeApplication(req, res);
+});
+
+/* FINALIZE APPLICATION */
+router.post('/applications/finalize/id/:id', function(req, res) {
+	return ApplicationsController.finalizeApplication(req, res);
+});
+
 module.exports = router;

@@ -139,6 +139,7 @@
 				      .then(function(newStatus) {
 				      	console.log('app approved');
 				      	$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
+				      	init();
 				      }, function(err) {
 				      	console.log('error');
 				      });
@@ -149,7 +150,14 @@
 		}
 
 		function finalizeApplication() {
-			alert('finalized for: ' + $scope.appId)
+			dataAccess.finalizeApplication($scope.appId)
+				      .then(function(newStatus) {
+				      	console.log('app finalized');
+				      	$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
+				      	init();
+				      }, function(err) {
+				      	console.log('error');
+				      });
 		}
 
 		function submitApplication() {
@@ -164,7 +172,14 @@
 		}
 
 		function completeApplication() {
-			alert('Application completed for: ' + $scope.appId);
+			dataAccess.completeApplication($scope.appId)
+				      .then(function(newStatus) {
+				      	console.log('app completed');
+				      	$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
+				      	init();
+				      }, function(err) {
+				      	console.log('error');
+				      });
 		}
 
 		function getApplicationValues() {
@@ -199,13 +214,18 @@
 			$scope.denyFunc = actionObj.rejectFunction;
 		}
 
-		// PUBLIC
-		$scope.uname = 'User',
-		$scope.status = $routeParams.status;
-		$scope.appId = $routeParams.AppId;
-		$scope.isAdmin = userSession.isAdmin();
-		$scope.displayFrmStatus = true;
+		function init() {
+			$scope.uname = 'User',
+			$scope.status = $routeParams.status;
+			$scope.appId = $routeParams.AppId;
+			$scope.isAdmin = userSession.isAdmin();
+			$scope.displayFrmStatus = true;
+			userInfo = userSession.getUserSession();
+			$scope.viewApplication($scope.appId);
+			//$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
+		}
 
+		// PUBLIC
 		$scope.viewApplication = function(appId) {
 			dataAccess.getApplicationById(appId) 	
 				  .then(function(application) {
@@ -228,7 +248,6 @@
 				$scope.unameSet = false;
 		}
 
-		userInfo = userSession.getUserSession();
-		$scope.viewApplication($scope.appId);
+		init();
 	}]);
 }());
