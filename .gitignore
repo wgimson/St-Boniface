@@ -3,8 +3,10 @@ logs/*
 node_modules/
 bower_components/
 public/bower_components
+dbconfig.js
 tmp
 .DS_Store
 .idea
 package.json.dev
+package.json
 server.js
