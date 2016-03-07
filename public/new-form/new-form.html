@@ -21,7 +21,7 @@
 			</div>
 			<div class="col-md-6">
 			    <label for="requestDate">Date of Request</label>
-			    <input ng-model="RequestDate" type="text" class="form-control txt-first-form" id="requestDate" placeholder="Date of Request">
+			    <input ng-model="RequestDate" type="text" class="form-control txt-first-form requestDate" id="requestDate" placeholder="Date of Request">
 			</div>
 			<div class="col-md-6">
 			    <label for="title">Title</label>
@@ -42,23 +42,31 @@
 			</div>
 	  	</div>
 	  	<div class="row" ng-repeat="visitor in getVisitors() track by $index">
-	  		<div class="col-md-3">
+	  		<visitor-row></visitor-row>
+	  		<!--<div class="col-md-3">
 	  			<label for="groupMembers">Visitor and Members of Group (if applicable)</label>
-			    <input type="text" class="form-control" id="groupMembers" placeholder="Name">
+			    <input type="text" class="form-control" id="{{ 'groupMembers' + $index }}" placeholder="Name">
 			</div>
 			<div class="col-md-3">
 	  			<label for="arrivalDateTime">Arrival Date and Time</label>
-			    <input type="text" class="form-control txt-first-form" id="arrivalDateTime" placeholder="Arrival Date and Time">
+			    <input type="text" class="form-control txt-first-form" id="{{ 'arrivalDateTime' + $index }}" placeholder="Arrival Date and Time">
 			</div>
 			<div class="col-md-3">
 	  			<label for="departureDateAndTime">Departure Date and Time</label>
-			    <input type="text" class="form-control txt-first-form" id="departureDateAndTime" placeholder="Departure Date and Time">
+			    <input type="text" class="form-control txt-first-form" id="{{ 'departureDateAndTime' + $index }}" placeholder="Departure Date and Time">
 			</div>
 			<div class="col-md-3">
-	  			<label for="gender">Gender</label>
-			    <input type="text" class="form-control txt-first-form" id="gender" placeholder="Gender">
-			</div>
-	  	</div>		
+	  			<label class="radio control-label">Gender</label>
+			    <label>
+			      <input type="radio" name="{{ 'radioGender' + $index }}" id="{{ 'radioGender' + $index }}" value="M">
+			      Male
+			    </label>
+			    <label>
+			      <input type="radio" name="{{ 'radioGender' + $index }}" id="{{ 'radioGender' + $index }}" value="F" checked>
+			      Female
+			    </label>
+			</div>-->
+	  	</div>
   		<div class="row">
 	  		<div class="col-md-12 btn-row">
 			    <button class="btn btn-primary btn-add-visitor" ng-click="addVisitor()">Add A Visitor</button>

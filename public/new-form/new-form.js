@@ -1,4 +1,4 @@
-(function() {
+(function(jq) {
 	'use strict';
 
 	angular.module('MyApp.NewForm', ['ngRoute'])
@@ -10,11 +10,23 @@
 	  });
 	}])
 
-	.controller('NewFormCtrl', ['$scope', 'dataAccess', 'userSession', function($scope, dataAccess, userSession) {
+	.controller('NewFormCtrl', ['$scope', 'dataAccess', 'userSession', 'appUtilities', function($scope, dataAccess, userSession, appUtilities) {
 		// PRIVATE 
+		var ctrl = this;
+		ctrl.datePickerElems = ['requestDate' /*Add date fields here*/];
+
+		function makeDatePickers() {
+			ctrl.datePickerElems.forEach(function(elemClass) {
+				appUtilities.makeDatePicker(elemClass);
+			});
+		}
+		
+		function init() {
+			makeDatePickers();
+		}
 
 		// PUBLIC 
-		$scope.Visitors = 1,
+		$scope.visitors = 1,
 		$scope.displaySuccessMsg = false,
 		$scope.successMsg = '',
 		$scope.displayRegisterPartial = false,
@@ -28,7 +40,10 @@
 
 		$scope.addVisitor = function() {
 			$scope.visitors++;
+			//makeDatePickers();
 		}
+
+		
 
 		$scope.registerNewUser = function() {
 			var newUser = JSON.stringify({
@@ -83,5 +98,7 @@
 
 			return frm;
 		}
+
+		init();
 	}]);
-}());
+}(jQuery));

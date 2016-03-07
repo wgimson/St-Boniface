@@ -1,4 +1,4 @@
-(function() {
+(function(jq) {
 	'use strict';
 
 	angular.module('MyApp.FormView', ['ngRoute'])
@@ -16,7 +16,15 @@
 
 	.controller('FormViewCtrl', ['$scope', '$routeParams', 'dataAccess', 'dataFormatter', 'userSession', 'appUtilities', function($scope, $routeParams, dataAccess, dataFormatter, userSession, appUtilities) {
 		// PRIVATE
+		var ctrl = this;
 		var userInfo;
+		//ctrl.dataPickerElems = ['requestDate'];
+
+		/*function makeDatePickers() {
+			dataPickerElems.forEach(function(elem) {
+				appUtilities.makeDatePicker(elem);
+			});
+		}*/
 
 		function getAdminAction(appStatus) {
 			switch (appStatus) {
@@ -222,6 +230,7 @@
 			$scope.displayFrmStatus = true;
 			userInfo = userSession.getUserSession();
 			$scope.viewApplication($scope.appId);
+			//makeDatePickers();
 			//$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
 		}
 
@@ -250,4 +259,4 @@
 
 		init();
 	}]);
-}());
+}(jQuery));

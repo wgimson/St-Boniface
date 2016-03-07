@@ -1,4 +1,4 @@
-(function() {
+(function(jq) {
 	var appUtilities = ['$http', function($http) {
 		var resolveAppStatus = function(statusId) {
 			switch (statusId) {
@@ -35,12 +35,24 @@
 			}
 		};
 
+		var makeDatePicker = function(elemClass) {
+			//var elemSelectStr = '#' + elemId;
+			jq("." + elemClass + "").datepicker();
+		};
+
+		var makeDatePickerElem = function(elem) {
+			//var elemSelectStr = '#' + elemId;
+			elem.datepicker();
+		};
+
 		return {
 			resolveAppStatus: 		 resolveAppStatus,
-			resolveAppStatusMessage: resolveAppStatusMessage
+			resolveAppStatusMessage: resolveAppStatusMessage,
+			makeDatePicker:          makeDatePicker,
+			makeDatePickerElem: 	 makeDatePickerElem
 		};
 	}];
 
 	var module = angular.module('MyApp');
 	module.factory('appUtilities', appUtilities);
-}());
+}(jQuery));
