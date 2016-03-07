@@ -9,4 +9,5 @@ tmp
 .idea
 package.json.dev
 package.json
+package.json.deploy
 server.js
