@@ -8,5 +8,4 @@ tmp
 .idea
 package.json.dev
 package.json
-dbconfig.js
 server.js
