@@ -1,0 +1,31 @@
+{
+  "name": "st-boniface",
+  "version": "0.0.0",
+  "description": "Vistor application for St. Boniface Foundation",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "node server.js",
+    "pretest": "npm install"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wgimson/St-Boniface"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "bower": "^1.7.7",
+    "express": "^4.13.4",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.3",
+    "morgan": "^1.6.1",
+    "node": "0.0.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.3.0"
+  }
+}
