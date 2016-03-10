@@ -51,6 +51,10 @@
   margin-top: 20px;
 }
 
+.txt-first-form-long-label {
+  /*margin-top: 20px;*/
+}
+
 .btn-add-visitor {
   float: right;
   margin-right: 14px;
@@ -78,3 +82,14 @@
   text-align: center;
   font-size: 30px;
 }
+
+.fieldset-group {
+  border: 1px solid #BEBEBE;
+  border-radius: 10px;
+  padding: 3px 3px 27px 3px;
+  margin: 5px 5px 5px 5px;
+}
+
+/*.app-radio {
+  margin-left: 8%;
+}*/

@@ -1,7 +1,7 @@
 <div>
 	<div class="col-md-3">
 		<label for="groupMembers">Visitor and Members of Group (if applicable)</label>
-	    <input type="text" class="form-control" id="{{ 'groupMembers' + $index }}" placeholder="Name">
+	    <input type="text" class="form-control txt-first-form-long-label" id="{{ 'groupMembers' + $index }}" placeholder="Name">
 	</div>
 	<div class="col-md-3">
 		<label for="arrivalDateTime">Arrival Date and Time</label>
@@ -14,11 +14,11 @@
 	<div class="col-md-3">
 		<label class="radio control-label">Gender</label>
 	    <label>
-	      <input type="radio" name="{{ 'radioGender' + $index }}" id="{{ 'radioGender' + $index }}" value="M">
+	      <input type="radio" name="{{ 'radioGender' + $index }}" class="app-radio" id="{{ 'radioGender' + $index }}" value="M">
 	      Male
 	    </label>
 	    <label>
-	      <input type="radio" name="{{ 'radioGender' + $index }}" id="{{ 'radioGender' + $index }}" value="F" checked>
+	      <input type="radio" name="{{ 'radioGender' + $index }}" class="app-radio" id="{{ 'radioGender' + $index }}" value="F" checked>
 	      Female
 	    </label>
 	</div>
