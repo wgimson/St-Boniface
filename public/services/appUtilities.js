@@ -45,11 +45,19 @@
 			elem.datepicker();
 		};
 
+		var validateCurrency = function(money) {
+			var regex  = /^\d+(?:\.\d{0,2})$/;
+			if (regex.test(money))
+			    return true;
+			return false;
+		}
+
 		return {
 			resolveAppStatus: 		 resolveAppStatus,
 			resolveAppStatusMessage: resolveAppStatusMessage,
 			makeDatePicker:          makeDatePicker,
-			makeDatePickerElem: 	 makeDatePickerElem
+			makeDatePickerElem: 	 makeDatePickerElem,
+			validateCurrency:        validateCurrency
 		};
 	}];
 

@@ -93,3 +93,11 @@
 /*.app-radio {
   margin-left: 8%;
 }*/
+
+.float-right {
+  float: right;
+}
+
+.txt-info {
+  width: 95%;
+}

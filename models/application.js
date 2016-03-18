@@ -8,8 +8,17 @@ var appSchema = new Schema({
 	FirstName: {
 		type: String
 	},
+	MiddleInitial: {
+		type: String
+	},
 	RequestDate: {
 		type: Date
+	},
+	Title: {
+		type: String
+	},
+	Occupation: {
+		type: String
 	},
 	CellPhone: {
 		type: String
@@ -17,10 +26,67 @@ var appSchema = new Schema({
 	Email: {
 		type: String
 	},
-	PurposeOfTrip: {
+	Purpose: {
 		type: String
 	},
-	NumberInGroup: {
+	PaidFor: {
+		type: Boolean
+	},
+	FirstTime: {
+		type: Boolean
+	},
+	NumberInTrip: {
+		type: Number
+	},
+	Sponsor: {
+		type: String
+	},
+	SponsorInHaiti: {
+		type: Boolean
+	},
+	SponsorCell: {
+		type: String
+	},
+	Requested: {
+		type: Boolean
+	},
+	AirTransport: {
+		type: String
+	},
+	SpecialRoutingInfo: {
+		type: String
+	},
+	AirfareExpense: {
+		type: Number
+	},
+	GroundExpense: {
+		type: Number
+	},
+	EvacExpense: {
+		type: Number
+	},
+	OtherExpense: {
+		type: Number
+	},
+	FrenchSpeaking: {
+		type: Boolean
+	},
+	VisitorWillStay: {
+		type: Boolean
+	},
+	BookedByNewton: {
+		type: Boolean
+	},
+	DirectExpense: {
+		type: Number
+	},
+	ReimbursableExpense: {
+		type: Number
+	},
+	TypeOfVisit: {
+		type: String
+	},
+	Fees: {
 		type: Number
 	},
 	AppStatus: {
