@@ -71,6 +71,9 @@ var appSchema = new Schema({
 	FrenchSpeaking: {
 		type: Boolean
 	},
+	Visitors: {
+		type: [Schema.Types.Mixed]
+	},
 	VisitorWillStay: {
 		type: Boolean
 	},

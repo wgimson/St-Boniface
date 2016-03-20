@@ -25,6 +25,25 @@
 			makeDatePickers();
 		}
 
+		function getFrmVisitors() {
+			var formVisitors = [];
+			jq('.divVisitor').each(function(index) {
+				var jqThis = jq(this);
+				var name = jqThis.find('[id^="groupMembers"]').val(),
+				    arrivalDate = jqThis.find('[id^="arrivalDateTime"]').val(),
+				    departureDate = jqThis.find('[id^="departureDateAndTime"]').val(),
+				    maleOrFemale = jqThis.find('input[name^="radioGender"]:checked').val();
+				var visitor = {
+					name: name, 
+					arrivalDate: arrivalDate,
+					departureDate: departureDate,
+					maleOrFemale: maleOrFemale
+				};
+				formVisitors.push(visitor);
+			}); 
+			return formVisitors;
+		}
+
 		// PUBLIC 
 		$scope.visitors = 1,
 		$scope.displaySuccessMsg = false,
@@ -86,8 +105,10 @@
 				FirstTime: $scope.FirstTime,
 				NumberInTrip: $scope.Visitors,
 				Sponsor: $scope.Sponsor,
+				Visitors: getFrmVisitors(),
 				SponsorInHaiti: $scope.SponsorInHaiti,
 				SponsorCell: $scope.SponsorCell,
+				SponsorRelationship: $scope.SponsorRelationship,
 				Requested: $scope.Requested,
 				AirTransport: $scope.AirTransport,
 				SpecialRoutingInfo: $scope.SpecialRoutingInfo,

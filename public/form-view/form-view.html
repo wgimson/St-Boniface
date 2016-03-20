@@ -16,7 +16,7 @@
 			</div>
 			<div class="col-md-6">
 			    <label for="mInitial">Middle Initial</label>
-			    <input type="text" class="form-control txt-first-form" id="mInitial" placeholder="Middle Initial">
+			    <input type="text" class="form-control txt-first-form" id="mInitial" placeholder="{{ viewApp.MiddleInitial }}" readonly="true" ng-model="viewApp.MiddleInitial">
 			</div>
 			<div class="col-md-6">
 			    <label for="requestDate">Date of Request</label>
@@ -24,39 +24,28 @@
 			</div>
 			<div class="col-md-6">
 			    <label for="title">Title</label>
-			    <input type="text" class="form-control txt-first-form" id="title" placeholder="Title (Mr., Mrs., Dr., etc.)">
+			    <input type="text" class="form-control txt-first-form" id="title" placeholder="{{ viewApp.Title }}" readonly="true" ng-model="viewApp.Title">
 			</div>
 			<div class="col-md-6">
 			    <label for="occupation">Occupation</label>
-			    <input type="text" class="form-control txt-first-form" id="occupation" placeholder="Occupation">
+			    <input type="text" class="form-control txt-first-form" id="occupation" placeholder="{{ viewApp.Occupation }}" readonly="true" ng-model="viewApp.Occupation">
 			</div>
 	  	</div>
 	  </fieldset>
 	  <fieldset class="form-group well form-fieldset">
 	  	<legend class="form-legend">Trip Information</legend>
 	  	<div class="row">
-	  		<div class="col-md-12">
-	  			<label for="txtPurposeOfTrip">Purpose of Trip</label>
-			    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="{{ viewApp.PurposeOfTrip }}" readonly="true" ng-model="viewApp.PurposeOfTrip"></textarea>
-			</div>
+			<fieldset class="fieldset-group">
+		  		<div class="col-md-12">
+		  			<label for="txtPurposeOfTrip">Purpose of Trip</label>
+				    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="{{ viewApp.Purpose }}" readonly="true" ng-model="viewApp.Purpose"></textarea>
+				</div>
+			</fieldset>
 	  	</div>
 	  	<div class="row" ng-repeat="visitor in getVisitors() track by $index">
-	  		<div class="col-md-3">
-	  			<label for="groupMembers">Visitor and Members of Group (if applicable)</label>
-			    <input type="text" class="form-control" id="groupMembers" placeholder="Name">
-			</div>
-			<div class="col-md-3">
-	  			<label for="arrivalDateTime">Arrival Date and Time</label>
-			    <input type="text" class="form-control txt-first-form" id="arrivalDateTime" placeholder="Arrival Date and Time">
-			</div>
-			<div class="col-md-3">
-	  			<label for="departureDateAndTime">Departure Date and Time</label>
-			    <input type="text" class="form-control txt-first-form" id="departureDateAndTime" placeholder="Departure Date and Time">
-			</div>
-			<div class="col-md-3">
-	  			<label for="gender">Gender</label>
-			    <input type="text" class="form-control txt-first-form" id="gender" placeholder="Gender">
-			</div>
+	  		<fieldset class="fieldset-group">
+		  		<visitor-row></visitor-row>
+	  		</fieldset>
 	  	</div>		
   		<div class="row">
 	  		<div class="col-md-12 btn-row">
@@ -64,68 +53,84 @@
 			</div>
 	  	</div>
 	  	<div class="row">
-	  		<div class="col-md-4">
-	  			<label>Will this trip be paid for by St. Boniface?</label>
-			</div>
-			<div class="col-md-4">
-				<label>
-			      <input type="radio" name="radioPadFor" id="radioPadFor" value="yes">
-			      Yes
-			    </label>
-			    <label>
-			      <input type="radio" name="radioPadFor" id="radioPadFor" value="no" checked>
-			      No
-			    </label>
-			</div>
-			<div class="col-md-4">
-				<label>
-			      <input type="radio" name="radioFirstTimeVisit" id="radioFirstTimeVisit" value="yes">
-			      Check if first time visitor to St. Boniface
-			    </label>
-			</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-md-6">
-	  			<label>Is this trip being requested by a St. Boniface staff member or unsolicited?</label>
-			</div>
-			<div class="col-md-6">
-				<label>
-			      <input type="radio" name="radioPadFor" id="radioPadFor" value="yes">
-			      Staff Request
-			    </label>
-			    <label>
-			      <input type="radio" name="radioPadFor" id="radioPadFor" value="no" checked>
-			      Unsolicited
-			    </label>
-			</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-md-3">
-		  		<label for="sName">Sponsor Name</label>
-		    	<input type="text" class="form-control txt-first-form" id="sName" placeholder="Sponsor Name (individual recommending the trip)">
-	  		</div>
-			<div class="col-md-3">
-			    <label for="sRelationship">Sponsor Relationship</label>
-			    <input type="text" class="form-control txt-first-form" id="sRelationship" placeholder="Sponsor Relationship (Employee, Board Member, etc.)">
-			</div>
-			<div class="col-md-3">
-				<div>
-		  			<label>Sponsor will accompany visitor or sponsor already in Haiti</label>
+	  		<fieldset class="fieldset-group">
+		  		<div class="col-md-3">
+		  			<label>Will this trip be paid for by St. Boniface?</label>
 				</div>
-				<div>
+				<div class="col-md-3">
 					<label>
-				      <input type="radio" name="sInHaiti" id="sInHaiti" value="yes">
+				      <input type="radio" name="radioPaidFor" id="radioPaidFor" ng-model="viewApp.PaidFor" ng-value="true" readonly=true checked="{{ viewApp.PaidFor }}">
 				      Yes
 				    </label>
 				    <label>
-				      <input type="radio" name="sInHaiti" id="sInHaiti" value="no" checked>
+				      <input type="radio" name="radioPaidFor" id="radioPaidFor" ng-model="viewApp.PaidFor" ng-value="false" readonly=true checked="{{ !viewApp.PaidFor }}">
 				      No
 				    </label>
 				</div>
-			</div>
-			<div class="col-md-3">
-			    <label for="sCell">Sponsor Cellphone</label>
-			    <input type="text" class="form-control txt-first-form" id="sCell" placeholder="4893-6195 Haiti Phone" ng-model="viewApp.Email">
+				<div class="col-md-3">
+					<label>Check if first time visitor to St. Boniface</label>
+				</div>
+				<div class="col-md-3">
+					<label>
+				      <input type="radio" name="radioFirstTimeVisit" class="app-radio" id="radioFirstTimeVisit" ng-model="viewApp.FirstTime" ng-value="true" readonly="true" checked="{{ viewApp.FirstTime }}">
+				      Yes
+				    </label>
+				    <label>
+				      <input type="radio" name="radioFirstTimeVisit" class="app-radio" id="radioFirstTimeVisit" ng-model="viewApp.FirstTime" ng-value="false" readonly="true" checked="{{ !viewApp.FirstTime }}">
+				      No
+				    </label>
+				</div>
+			</fieldset>
+	  	</div>
+	  	<div class="row">
+	  		<fieldset class="fieldset-group">
+		  		<div class="col-md-3">
+			  		<label for="sName">Sponsor Name</label>
+			    	<input type="text" class="form-control txt-first-form" id="sName" ng-value="Sponsor" placeholder="{{ viewApp.Sponsor }}" ng-model="Sponsor" readonly="true">
+		  		</div>
+				<div class="col-md-3">
+				    <label for="sRelationship">Sponsor Relationship</label>
+				    <input type="text" class="form-control txt-first-form" id="sRelationship" placeholder="{{ viewApp.SponsorRealtionship }}" ng-model="viewApp.SponsorRelationship" readonly="true">
+				</div>
+				<div class="col-md-4">
+					<div>
+			  			<label>Sponsor will accompany visitor or sponsor already in Haiti</label>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div>
+						<label>
+					      <input type="radio" name="sInHaiti" class="app-radio" id="sInHaiti" ng-model="viewApp.SponsorInHaiti" ng-value="true" checked="{{ viewApp.SponsorInHaiti }}" readonly="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="sInHaiti" class="app-radio" id="sInHaiti" ng-model="viewApp.SponsorInHaiti" ng-value="false" checked="{{ !viewApp.SponsorInHaiti }}" readonly="true">
+					      No
+					    </label>
+					</div>
+				</div>
+			</fieldset>
+	  	</div>
+	  	<div class="row">
+	  		<fieldset class="fieldset-group">
+				<div class="col-md-4">
+				    <label for="sCell">Sponsor Cellphone</label>
+				    <input ng-model="CellPhone" type="text" class="form-control txt-first-form" id="sCell" ng-model="SponsorCell" placeholder="{{ viewApp.SponsorCell }}" readonly="true">
+				</div>
+				<div class="col-md-4">
+		  			<label>Is this trip being requested by a St. Boniface staff member or unsolicited?</label>
+				</div>
+				<div class="col-md-4">
+					<label>
+				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" ng-value="true" checked="{{ viewApp.Requested }}" readonly="true">
+				      Staff Request
+				    </label>
+				    <label>
+				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" ng-value="false" checked="{{ !viewApp.Requested }}" readonly="true">
+				      Unsolicited
+				    </label>
+				</div>
+			</fieldset>
 			</div>
 	  	</div>
 	  </fieldset>
