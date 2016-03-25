@@ -47,6 +47,9 @@ var appSchema = new Schema({
 	SponsorCell: {
 		type: String
 	},
+	SponsorRelationship: {
+		type: String
+	},
 	Requested: {
 		type: Boolean
 	},
