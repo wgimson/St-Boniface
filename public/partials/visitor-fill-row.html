@@ -1,0 +1,30 @@
+<div class="divVisitor">
+	<div class="col-md-3">
+		<label for="groupMembers">Visitor and Members of Group (if applicable)</label>
+	    <input type="text" class="form-control txt-first-form-long-label" id="{{ 'groupMembers' + $index }}" 
+	           value="{{ visitor.name }}" readonly="true">
+	</div>
+	<div class="col-md-3">
+		<label for="arrivalDateTime">Arrival Date and Time</label>
+	    <input type="text" class="form-control txt-first-form arrivalDateAndTime"
+	           value="{{ visitor.arrivalDate }}" readonly="true">
+	</div>
+	<div class="col-md-3">
+		<label for="departureDateAndTime">Departure Date and Time</label>
+	    <input type="text" class="form-control txt-first-form departureDateAndTime" 
+	           value="{{ visitor.departureDate }}" readonly="true">
+	</div>
+	<div class="col-md-3">
+		<label class="radio control-label">Gender</label>
+	    <label>
+	      <input type="radio" name="{{ 'radioGender' + $index }}" class="app-radio" id="{{ 'radioGender' + $index }}" 
+	             value="M" ng-checked="{{ visitor.maleOrFemale == 'M' }}" ng-disabled="{{ visitor.maleOrFemale != 'M' }}">
+	      Male
+	    </label>
+	    <label>
+	      <input type="radio" name="{{ 'radioGender' + $index }}" class="app-radio" id="{{ 'radioGender' + $index }}" 
+	             value="F" ng-checked="{{ visitor.maleOrFemale == 'F' }}" ng-disabled="{{ visitor.maleOrFemale != 'F' }}">
+	      Female
+	    </label>
+	</div>
+</div>

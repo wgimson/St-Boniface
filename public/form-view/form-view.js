@@ -222,6 +222,8 @@
 			$scope.denyFunc = actionObj.rejectFunction;
 		}
 
+
+
 		function init() {
 			$scope.uname = 'User',
 			$scope.status = $routeParams.status;
@@ -244,6 +246,7 @@
 				  	$scope.status = application.AppStatus;
 				  	$scope.uname = user.UserName;
 				  	$scope.viewApp = application;
+				  	$scope.Visitors = application.Visitors;
 					setButtonScope($scope.status);
 				  }, function(error) {
 				  	console.log('Could not retrieve application by id: ' + error);
@@ -255,6 +258,10 @@
 				$scope.unameSet = true;
 			else 
 				$scope.unameSet = false;
+		}
+
+		$scope.getVisitors = function(appId) {
+			return $scope.Visitors;
 		}
 
 		init();
