@@ -36,12 +36,10 @@
 		};
 
 		var makeDatePicker = function(elemClass) {
-			//var elemSelectStr = '#' + elemId;
 			jq("." + elemClass + "").datepicker();
 		};
 
 		var makeDatePickerElem = function(elem) {
-			//var elemSelectStr = '#' + elemId;
 			elem.datepicker();
 		};
 
@@ -52,12 +50,17 @@
 			return false;
 		}
 
+		var makeCurrency = function(amt) {
+			return '$' + amt;
+		}
+
 		return {
 			resolveAppStatus: 		 resolveAppStatus,
 			resolveAppStatusMessage: resolveAppStatusMessage,
 			makeDatePicker:          makeDatePicker,
 			makeDatePickerElem: 	 makeDatePickerElem,
-			validateCurrency:        validateCurrency
+			validateCurrency:        validateCurrency,
+			makeCurrency: 			 makeCurrency
 		};
 	}];
 

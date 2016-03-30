@@ -18,12 +18,12 @@
 		<label class="radio control-label">Gender</label>
 	    <label>
 	      <input type="radio" name="{{ 'radioGender' + $index }}" class="app-radio" id="{{ 'radioGender' + $index }}" 
-	             value="M" ng-checked="{{ visitor.maleOrFemale == 'M' }}" ng-disabled="{{ visitor.maleOrFemale != 'M' }}">
+	             value="M" ng-checked="{{ visitor.maleOrFemale == 'M' }}" ng-disabled="true">
 	      Male
 	    </label>
 	    <label>
 	      <input type="radio" name="{{ 'radioGender' + $index }}" class="app-radio" id="{{ 'radioGender' + $index }}" 
-	             value="F" ng-checked="{{ visitor.maleOrFemale == 'F' }}" ng-disabled="{{ visitor.maleOrFemale != 'F' }}">
+	             value="F" ng-checked="{{ visitor.maleOrFemale == 'F' }}" ng-disabled="true">
 	      Female
 	    </label>
 	</div>

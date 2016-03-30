@@ -8,27 +8,27 @@
 	  	<div class="row">
 	  		<div class="col-md-6">
 		  		<label for="fName">First Name</label>
-		    	<input type="text" class="form-control txt-first-form" id="fName" placeholder="{{ viewApp.FirstName }}" readonly="true" ng-model="viewApp.FirstName">
+		    	<input type="text" class="form-control txt-first-form" id="fName" readonly="true" ng-model="viewApp.FirstName">
 	  		</div>
 			<div class="col-md-6">
 			    <label for="lName">Last Name</label>
-			    <input type="text" class="form-control txt-first-form" id="lName" placeholder="{{ viewApp.LastName }}" readonly="true" ng-model="viewApp.LastName">
+			    <input type="text" class="form-control txt-first-form" id="lName" readonly="true" ng-model="viewApp.LastName">
 			</div>
 			<div class="col-md-6">
 			    <label for="mInitial">Middle Initial</label>
-			    <input type="text" class="form-control txt-first-form" id="mInitial" placeholder="{{ viewApp.MiddleInitial }}" readonly="true" ng-model="viewApp.MiddleInitial">
+			    <input type="text" class="form-control txt-first-form" id="mInitial" readonly="true" ng-model="viewApp.MiddleInitial">
 			</div>
 			<div class="col-md-6">
 			    <label for="requestDate">Date of Request</label>
-			    <input type="text" class="form-control txt-first-form" id="requestDate" placeholder="{{ viewApp.RequestDate }}" readonly="true" ng-model="viewApp.RequestDate">
+			    <input type="text" class="form-control txt-first-form" id="requestDate" readonly="true" ng-model="viewApp.RequestDate">
 			</div>
 			<div class="col-md-6">
 			    <label for="title">Title</label>
-			    <input type="text" class="form-control txt-first-form" id="title" placeholder="{{ viewApp.Title }}" readonly="true" ng-model="viewApp.Title">
+			    <input type="text" class="form-control txt-first-form" id="title" readonly="true" ng-model="viewApp.Title">
 			</div>
 			<div class="col-md-6">
 			    <label for="occupation">Occupation</label>
-			    <input type="text" class="form-control txt-first-form" id="occupation" placeholder="{{ viewApp.Occupation }}" readonly="true" ng-model="viewApp.Occupation">
+			    <input type="text" class="form-control txt-first-form" id="occupation" readonly="true" ng-model="viewApp.Occupation">
 			</div>
 	  	</div>
 	  </fieldset>
@@ -38,7 +38,7 @@
 			<fieldset class="fieldset-group">
 		  		<div class="col-md-12">
 		  			<label for="txtPurposeOfTrip">Purpose of Trip</label>
-				    <textarea class="form-control" id="txtPurposeOfTrip" placeholder="{{ viewApp.Purpose }}" readonly="true" ng-model="viewApp.Purpose"></textarea>
+				    <textarea class="form-control" rows="2" id="txtPurposeOfTrip" readonly="true" ng-model="viewApp.Purpose"></textarea>
 				</div>
 			</fieldset>
 	  	</div>
@@ -54,11 +54,13 @@
 				</div>
 				<div class="col-md-3">
 					<label>
-				      <input type="radio" name="radioPaidFor" id="radioPaidFor" ng-model="viewApp.PaidFor" ng-value="true" readonly=true checked="{{ viewApp.PaidFor }}">
+				      <input type="radio" name="radioPaidFor" id="radioPaidFor" ng-model="viewApp.PaidFor"
+				             ng-value="true" ng-disabled="true" ng-checked="{{ viewApp.PaidFor }}">
 				      Yes
 				    </label>
 				    <label>
-				      <input type="radio" name="radioPaidFor" id="radioPaidFor" ng-model="viewApp.PaidFor" ng-value="false" readonly=true ng-disabled="{{ !viewApp.PaidFor }}">
+				      <input type="radio" name="radioPaidFor" id="radioPaidFor" ng-model="viewApp.PaidFor"
+				             ng-value="false" ng-disabled="true" ng-checked="{{ !viewApp.PaidFor }}">
 				      No
 				    </label>
 				</div>
@@ -67,11 +69,13 @@
 				</div>
 				<div class="col-md-3">
 					<label>
-				      <input type="radio" name="radioFirstTimeVisit" class="app-radio" id="radioFirstTimeVisit" ng-model="viewApp.FirstTime" ng-value="true" checked="{{ viewApp.FirstTime }}" ng-disabled="{{ !viewApp.FirstTime }}">
+				      <input type="radio" name="radioFirstTimeVisit" class="app-radio" id="radioFirstTimeVisit" 
+				      		 ng-model="viewApp.FirstTime" ng-value="true" ng-checked="{{ viewApp.FirstTime }}" ng-disabled="true">
 				      Yes
 				    </label>
 				    <label>
-				      <input type="radio" name="radioFirstTimeVisit" class="app-radio" id="radioFirstTimeVisit" ng-model="viewApp.FirstTime" ng-value="false" checked="{{ !viewApp.FirstTime }}" ng-disabled="{{ viewApp.FirstTime }}">
+				      <input type="radio" name="radioFirstTimeVisit" class="app-radio" id="radioFirstTimeVisit" 
+				      		 ng-model="viewApp.FirstTime" ng-value="false" ng-checked="{{ !viewApp.FirstTime }}" ng-disabled="true">
 				      No
 				    </label>
 				</div>
@@ -81,11 +85,13 @@
 	  		<fieldset class="fieldset-group">
 		  		<div class="col-md-3">
 			  		<label for="sName">Sponsor Name</label>
-			    	<input type="text" class="form-control txt-first-form" id="sName" ng-value="Sponsor" placeholder="{{ viewApp.Sponsor }}" ng-model="Sponsor" readonly="true">
+			    	<input type="text" class="form-control txt-first-form" id="sName" ng-value="Sponsor" 
+			    		    ng-model="viewApp.Sponsor" readonly="true">
 		  		</div>
 				<div class="col-md-3">
 				    <label for="sRelationship">Sponsor Relationship</label>
-				    <input type="text" class="form-control txt-first-form" id="sRelationship" placeholder="{{ viewApp.SponsorRealtionship }}" ng-model="viewApp.SponsorRelationship" readonly="true">
+				    <input type="text" class="form-control txt-first-form" id="sRelationship" 
+				            ng-model="viewApp.SponsorRelationship" readonly="true">
 				</div>
 				<div class="col-md-4">
 					<div>
@@ -95,11 +101,13 @@
 				<div class="col-md-2">
 					<div>
 						<label>
-					      <input type="radio" name="sInHaiti" class="app-radio" id="sInHaiti" ng-model="viewApp.SponsorInHaiti" ng-value="true" checked="{{ viewApp.SponsorInHaiti }}" ng-disabled="{{ !viewApp.SponsorInHaiti }}">
+					      <input type="radio" name="sInHaiti" class="app-radio" id="sInHaiti" ng-model="viewApp.SponsorInHaiti" 
+					      		 ng-value="true" ng-checked="{{ viewApp.SponsorInHaiti }}" ng-disabled="true">
 					      Yes
 					    </label>
 					    <label>
-					      <input type="radio" name="sInHaiti" class="app-radio" id="sInHaiti" ng-model="viewApp.SponsorInHaiti" ng-value="false" checked="{{ !viewApp.SponsorInHaiti }}" ng-disabled="{{ viewApp.SponsorInHaiti }}">
+					      <input type="radio" name="sInHaiti" class="app-radio" id="sInHaiti" ng-model="viewApp.SponsorInHaiti" 
+					      		 ng-value="false" ng-checked="{{ !viewApp.SponsorInHaiti }}" ng-disabled="true">
 					      No
 					    </label>
 					</div>
@@ -110,25 +118,193 @@
 	  		<fieldset class="fieldset-group">
 				<div class="col-md-4">
 				    <label for="sCell">Sponsor Cellphone</label>
-				    <input ng-model="CellPhone" type="text" class="form-control txt-first-form" id="sCell" ng-model="SponsorCell" placeholder="{{ viewApp.SponsorCell }}" readonly="true">
+				    <input type="text" class="form-control txt-first-form" id="sCell" 
+				    	   ng-model="viewApp.CellPhone" readonly="true">
 				</div>
 				<div class="col-md-4">
 		  			<label>Is this trip being requested by a St. Boniface staff member or unsolicited?</label>
 				</div>
 				<div class="col-md-4">
 					<label>
-				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" ng-value="true" checked="{{ viewApp.Requested }}" ng-disabled="{{ !viewApp.Requested }}">
+				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" 
+				             ng-value="true" ng-checked="{{ viewApp.Requested }}" ng-disabled="true">
 				      Staff Request
 				    </label>
 				    <label>
-				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" ng-value="false" checked="{{ !viewApp.Requested }}" ng-disabled="{{ viewApp.Requested }}">
+				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" 
+				       		 ng-value="false" ng-checked="{{ !viewApp.Requested }}" ng-disabled="true">
 				      Unsolicited
 				    </label>
 				</div>
 			</fieldset>
-			</div>
+		</div>
+		<div class="row">
+		  	<fieldset class="fieldset-group">
+		  		<div class="col-md-2">
+		  			<label>Air transportation needs</label>
+				</div>
+				<div class="col-md-4">
+					<label>
+				      <input type="radio" name="radioAirTransport" class="app-radio" id="radioAirTransport" 
+				      		 ng-model="viewApp.AirTransport" value="rt" ng-checked="{{ viewApp.AirTransport === 'rt' }}" ng-disabled="true">
+				      Round Trip
+				    </label>
+				    <label>
+				      <input type="radio" name="radioAirTransport" class="app-radio" id="radioAirTransport" 
+				      		 ng-model="viewApp.AirTransport" value="tsb" ng-checked="{{ viewApp.AirTransport === 'tsb' }}" ng-disabled="true">
+				      To St. B Only
+				    </label>
+				    <label>
+				      <input type="radio" name="radioAirTransport" class="app-radio" id="radioAirTransport" ng-model="viewApp.AirTransport" 
+				      		 value="fsb" ng-checked="{{ viewApp.AirTransport === 'fsb' }}" ng-disabled="true">
+				      From St. B Only
+				    </label>
+				    <label>
+				      <input type="radio" name="radioAirTransport" class="app-radio" id="radioAirTransport" ng-model="viewApp.AirTransport" 
+				      		 ng-checked="{{ viewApp.AirTransport === 'nr' }}" ng-disabled="true" value="nr">
+				      Not Required
+				    </label>
+				</div>
+		  		<div class="col-md-2">
+		  			<label>Special Routing Information</label>
+				</div>
+				<div class="col-md-4">
+					<textarea class="txt-info" ng-model="viewApp.SpecialRoutingInfo" readonly="true"></textarea>
+				</div>
+			</fieldset>
 	  	</div>
-	  </fieldset>
-	  <dashboard-button affirm-button-txt="{{ affirmButtonTxt }}" deny-button-txt="{{ denyButtonTxt }}" display-affirm-button="displayAffirmButton" display-deny-button="displayDenyButton" affirm-func="affirmFunc()" deny-func="denyFunc()" status="{{ status }}" app-id="{{ appId }}" is-admin="isAdmin"></dashboard-button>
+	  	<div class="row">
+	  		<fieldset class="fieldset-group">
+		  		<div class="col-md-4">
+		  			<label>Estimated Expenses (to be completed if St. Boniface is paying the cost)</label>
+				</div>
+				<div class="col-md-2">
+					<label for="costAirfare">Airfare</label>
+			    	<input type="text" class="form-control txt-first-form" id="costAirfare"
+			    	       name="costAirfare" value="{{ makeCurrency(viewApp.AirfareExpense) }}" readonly="true">
+		    	</div>
+		    	<div class="col-md-2">
+			    	<label for="gTransport">Ground Transportation</label>
+			    	<input type="text" class="form-control txt-first-form-long-label" value="{{ makeCurrency(viewApp.GroundExpense) }}" id="gTransport"
+			    	       readonly="true">
+		    	</div>
+		    	<div class="col-md-2">
+			    	<label for="medVac">Medical Evacuation Insurance</label>
+			    	<input type="text" class="form-control txt-first-form-long-label" value="{{ makeCurrency(viewApp.EvacExpense) }}" id="medVac" readonly="true">
+		    	</div>
+		    	<div class="col-md-2">
+			    	<label for="other">Other</label>
+			    	<input type="text" class="form-control txt-first-form" id="other" readonly="true" value="{{ makeCurrency(viewApp.OtherExpense) }}">
+				</div>
+			</fieldset>
+	  	</div>
+	  	<div class="row">
+		  	<fieldset class="fieldset-group">
+		  		<div class="col-md-4">
+		  			<label>Are There Fees to be Collected</label>
+				</div>
+				<div class="col-md-2">
+			    	<input type="text" class="form-control txt-first-form" id="txtFees" readonly="true" value="{{ makeCurrency(viewApp.Fees) }}">
+		    	</div>
+		    	<div class="col-md-3">
+			  			<label>Kreyol or French Speaking (individual or team member)?</label>
+				</div>
+				<div class="col-md-3">
+					<label>
+				      <input type="radio" name="radioFrench" class="app-radio" id="radioFrench" 
+				             ng-model="viewApp.FrenchSpeaking" ng-value="true" ng-checked="{{ viewApp.FrenchSpeaking }}" ng-disabled="true">
+				      Yes
+				    </label>
+				    <label>
+				      <input type="radio" name="radioFrench" class="app-radio" id="radioFrench" 
+				             ng-model="viewApp.FrenchSpeaking" ng-value="false" ng-checked="{{ !viewApp.FrenchSpeaking }}" ng-disabled="true">
+				      No
+				    </label>
+				</div>
+	    	</fieldset>
+	  	</div>
+	  	<div class="row">
+	  		<fieldset class="fieldset-group">
+		  		<div class="col-md-3">
+		  			<label>Visitor Will Stay at the Residence?</label>
+				</div>
+				<div class="col-md-3">
+					<label>
+				      <input type="radio" name="radioStayResidence" class="app-radio" id="radioStayResidence" 
+				      	     ng-model="viewApp.VisitorWillStay" ng-value="true" ng-checked="{{ viewApp.VisitorWillStay }}" ng-disabled="true">
+				      Yes
+				    </label>
+				    <label>
+				      <input type="radio" name="radioStayResidence" class="app-radio" id="radioStayResidence" 
+				      		 ng-model="viewApp.VisitorWillStay" ng-value="false" ng-checked="{{ !viewApp.VisitorWillStay }}" ng-disabled="true">
+				      No
+				    </label>
+				</div>
+		  		<div class="col-md-3">
+		  			<label>Flights to be Booked by Newton Office?</label>
+				</div>
+				<div class="col-md-3">
+					<label>
+				      <input type="radio" name="radioBookedNewton" class="app-radio" id="radioBookedNewton" 
+				      		 ng-model="viewApp.BookedByNewton" ng-value="true" ng-checked="{{ viewApp.BookedByNewton }}" ng-disabled="true">
+				      Yes
+				    </label>
+				    <label>
+				      <input type="radio" name="radioBookedNewton" class="app-radio" id="radioBookedNewton" 
+				      		 ng-model="viewApp.BookedByNewton" ng-value="false" ng-checked="{{ !viewApp.BookedByNewton }}" ng-disabled="true">
+				      No
+				    </label>
+				</div>
+			</fieldset>
+	  	</div>
+	  	<fieldset class="form-group well form-fieldset">
+		  	<legend class="form-legend">Accounting Information</legend>
+		  	<div class="row">
+			  	<fieldset class="fieldset-group">
+					<div class="col-md-3">
+			  			<label for="txtDirect">Program (direct expenses)</label>
+				    	<input type="text" class="form-control txt-first-form" id="txtDirect" readonly="true" value="{{ makeCurrency(viewApp.DirectExpense) }}">
+			    	</div>
+					<div class="col-md-3">
+						<label for="txtReimb">Program (reimbursable expenses)</label>
+				    	<input type="text" class="form-control txt-first-form" id="txtReimb" readonly="true" value="{{ makeCurrency(viewApp.ReimbursableExpense) }}">
+			    	</div>
+			    	<div class="col-md-1">
+			  			<label>Type of Visit</label>
+					</div>
+			    	<div class="col-md-5">
+						<label>
+					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
+					             ng-model="viewApp.VisitType" ng-value="donor" ng-checked="{{ viewApp.VisitType === 'donor' }}" ng-disabled="true">
+					      Donor/VIP Visit
+					    </label>
+					    <label>
+					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
+					             ng-model="viewApp.VisitType" ng-value="volunteer" ng-checked="{{ viewApp.VisitType === 'volunteer' }}" ng-disabled="true">
+					      Working Volunteer
+					    </label>
+					    <label>
+					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
+					             ng-model="viewApp.VisitType" ng-value="paidTime" ng-checked="{{ viewApp.VisitType === 'paidTime' }}" ng-disabled="true">
+					      Part Time Paid Visit
+					    </label>
+					    <label>
+					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
+					      ng-model="viewApp.VisitType" ng-value="family" ng-checked="{{ viewApp.VisitType === 'family' }}" ng-disabled="true">
+					      Staff Family or Friend
+					    </label>
+					    <label>
+					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
+					      ng-model="viewApp.VisitType" ng-value="other" ng-checked="{{ viewApp.VisitType === 'other' }}" ng-disabled="true">
+					      Other
+					    </label>
+					</div>
+		    	</fieldset>
+		  	</div>
+	    </fieldset>
+		<dashboard-button affirm-button-txt="{{ affirmButtonTxt }}" deny-button-txt="{{ denyButtonTxt }}" 
+		                  display-affirm-button="displayAffirmButton" display-deny-button="displayDenyButton" affirm-func="affirmFunc()" 
+		                  deny-func="denyFunc()" status="{{ status }}" app-id="{{ appId }}" is-admin="isAdmin">
+		</dashboard-button>
 	</form>
 </div>

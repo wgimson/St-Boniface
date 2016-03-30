@@ -264,6 +264,10 @@
 			return $scope.Visitors;
 		}
 
+		$scope.makeCurrency = function(amt) {
+			return appUtilities.makeCurrency(amt);
+		}
+
 		init();
 	}]);
 }(jQuery));
