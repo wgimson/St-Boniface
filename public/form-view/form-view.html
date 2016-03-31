@@ -126,12 +126,12 @@
 				</div>
 				<div class="col-md-4">
 					<label>
-				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" 
+				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="viewApp.Requested" 
 				             ng-value="true" ng-checked="{{ viewApp.Requested }}" ng-disabled="true">
 				      Staff Request
 				    </label>
 				    <label>
-				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="Requested" 
+				      <input type="radio" name="radioRequested" class="app-radio" id="radioRequested" ng-model="viewApp.Requested" 
 				       		 ng-value="false" ng-checked="{{ !viewApp.Requested }}" ng-disabled="true">
 				      Unsolicited
 				    </label>
@@ -275,27 +275,27 @@
 			    	<div class="col-md-5">
 						<label>
 					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
-					             ng-model="viewApp.VisitType" ng-value="donor" ng-checked="{{ viewApp.VisitType === 'donor' }}" ng-disabled="true">
+					             ng-model="viewApp.TypeOfVisit" value="donor" ng-checked="{{ viewApp.TypeOfVisit === 'donor' }}" ng-disabled="true">
 					      Donor/VIP Visit
 					    </label>
 					    <label>
 					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
-					             ng-model="viewApp.VisitType" ng-value="volunteer" ng-checked="{{ viewApp.VisitType === 'volunteer' }}" ng-disabled="true">
+					             ng-model="viewApp.TypeOfVisit" value="volunteer" ng-checked="{{ viewApp.TypeOfVisit === 'volunteer' }}" ng-disabled="true">
 					      Working Volunteer
 					    </label>
 					    <label>
 					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
-					             ng-model="viewApp.VisitType" ng-value="paidTime" ng-checked="{{ viewApp.VisitType === 'paidTime' }}" ng-disabled="true">
+					             ng-model="viewApp.TypeOfVisit" value="paidTime" ng-checked="{{ viewApp.TypeOfVisit === 'paidTime' }}" ng-disabled="true">
 					      Part Time Paid Visit
 					    </label>
 					    <label>
 					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
-					      ng-model="viewApp.VisitType" ng-value="family" ng-checked="{{ viewApp.VisitType === 'family' }}" ng-disabled="true">
+					      ng-model="viewApp.TypeOfVisit" value="family" ng-checked="{{ viewApp.TypeOfVisit === 'family' }}" ng-disabled="true">
 					      Staff Family or Friend
 					    </label>
 					    <label>
 					      <input type="radio" name="radioVisitType" class="app-radio" id="radioVisitType" 
-					      ng-model="viewApp.VisitType" ng-value="other" ng-checked="{{ viewApp.VisitType === 'other' }}" ng-disabled="true">
+					      ng-model="viewApp.TypeOfVisit" value="other" ng-checked="{{ viewApp.TypeOfVisit === 'other' }}" ng-disabled="true">
 					      Other
 					    </label>
 					</div>
