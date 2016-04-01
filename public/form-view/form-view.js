@@ -180,14 +180,15 @@
 		}
 
 		function completeApplication() {
-			dataAccess.completeApplication($scope.appId)
+			$scope.readyToComplete = true;
+			/*dataAccess.completeApplication($scope.appId)
 				      .then(function(newStatus) {
 				      	console.log('app completed');
 				      	$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
 				      	init();
 				      }, function(err) {
 				      	console.log('error');
-				      });
+				      });*/
 		}
 
 		function getApplicationValues() {
@@ -225,6 +226,8 @@
 
 
 		function init() {
+			$scope.readyToComplete = false;
+			$scope.showPassportCountry = false;
 			$scope.uname = 'User',
 			$scope.status = $routeParams.status;
 			$scope.appId = $routeParams.AppId;
@@ -266,6 +269,13 @@
 
 		$scope.makeCurrency = function(amt) {
 			return appUtilities.makeCurrency(amt);
+		}
+
+		$scope.togglePassportCountry = function() {
+			if ($scope.viewApp.PassportIsUS) 
+				$scope.showPassportCountry = false;
+			else 
+				$scope.showPassportCountry = true;
 		}
 
 		init();
