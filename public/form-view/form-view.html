@@ -419,22 +419,22 @@
 					    </label>
 					</div>
 			  		<div class="col-md-3">
-			  			<label>What Services Will the Residence Proivde(Check All that Apply)?</label>
+			  			<label>What Services Will the Residence Provide(Check All that Apply)?</label>
 					</div>
 					<div class="col-md-3">
 						<label>
-					      <input type="radio" name="radioServices" class="app-radio" id="radioServices" 
-					      		 ng-model="viewApp.ResidenceServices" ng-value="lodging">
+					      <input type="checkbox" class="app-radio" id="radioServicesLodging" 
+					      		 ng-model="viewApp.NeedLodging" ng-value="lodging">
 					      Lodging
 					    </label>
 					    <label>
-					      <input type="radio" name="radioServices" class="app-radio" id="radioServices" 
-					      		 ng-model="viewApp.ResidenceServices" ng-value="meals">
+					      <input type="checkbox"class="app-radio" id="radioServicesMeals" 
+					      		 ng-model="viewApp.NeedMeals" ng-value="meals">
 					      Meals
 					    </label>
 					    <label>
-					      <input type="radio" name="radioServices" class="app-radio" id="radioServices" 
-					      		 ng-model="viewApp.ResidenceServices" ng-value="other">
+					      <input type="checkbox" class="app-radio" id="radioServicesOther" 
+					      		 ng-model="viewApp.NeedOther" ng-value="other">
 					      Other
 					    </label>
 					</div>
@@ -524,7 +524,7 @@
 		<fieldset class="form-group well form-fieldset">
 			<div class="row">
 				<div class="col-md-12">
-					<button class="btn btn-info">Submit for Completion</button>
+					<button class="btn btn-info float-right" ng-click="submitForCompletion()">Submit for Completion</button>
 				</div>
 			</div>
 		</fieldset>

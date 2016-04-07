@@ -181,14 +181,30 @@
 
 		function completeApplication() {
 			$scope.readyToComplete = true;
+		}
+
+		$scope.submitForCompletion = function() {
+			var extendedForm = JSON.stringify({
+				DateOfBirth: 		  $scope.viewApp.dateOfBirth,
+				Cell: 				  $scope.viewApp.cellPhoneNumber,
+				Email: 				  $scope.viewApp.emailAddress,
+				EmergencyContact: 	  $scope.viewApp.emergencyContact,
+				EmergencyContactCell: $scope.viewApp.emergencyContactCell,
+				PassportNumber: 	  $scope.viewApp.passNumber,
+				PassportCountry: 	  ($scope.viewApp.PassportIsUS ? 'US' : $scope.viewApp.passportCountry),
+				IsInternationalVisitor: $scope.viewApp.isInternational,
+				HasVisitorHandbook: $scope.viewApp.VisitorHandbook,
+				FeesCollectedAtResidence: $scope.viewApp.CollectAtResidence,
+				ResidenceServices: $scope.viewApp.ResidenceServices
+			});
 			/*dataAccess.completeApplication($scope.appId)
-				      .then(function(newStatus) {
-				      	console.log('app completed');
-				      	$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
-				      	init();
-				      }, function(err) {
-				      	console.log('error');
-				      });*/
+				.then(function(newStatus) {
+					console.log('app completed');
+					$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
+					init();
+				}, function(err) {
+					console.log('error');
+				});*/
 		}
 
 		function getApplicationValues() {
