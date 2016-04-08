@@ -185,26 +185,33 @@
 
 		$scope.submitForCompletion = function() {
 			var extendedForm = JSON.stringify({
-				DateOfBirth: 		  $scope.viewApp.dateOfBirth,
-				Cell: 				  $scope.viewApp.cellPhoneNumber,
-				Email: 				  $scope.viewApp.emailAddress,
-				EmergencyContact: 	  $scope.viewApp.emergencyContact,
-				EmergencyContactCell: $scope.viewApp.emergencyContactCell,
-				PassportNumber: 	  $scope.viewApp.passNumber,
-				PassportCountry: 	  ($scope.viewApp.PassportIsUS ? 'US' : $scope.viewApp.passportCountry),
-				IsInternationalVisitor: $scope.viewApp.isInternational,
-				HasVisitorHandbook: $scope.viewApp.VisitorHandbook,
+				DateOfBirth: 		      $scope.viewApp.dateOfBirth,
+				Cell: 				      $scope.viewApp.cellPhoneNumber,
+				Email: 				      $scope.viewApp.emailAddress,
+				EmergencyContact: 	      $scope.viewApp.emergencyContact,
+				EmergencyContactCell:     $scope.viewApp.emergencyContactCell,
+				PassportNumber: 	      $scope.viewApp.passNumber,
+				PassportCountry: 	     ($scope.viewApp.PassportIsUS ? 'US' : $scope.viewApp.passportCountry),
+				IsInternationalVisitor:   $scope.viewApp.isInternational,
+				HasVisitorHandbook: 	  $scope.viewApp.VisitorHandbook,
 				FeesCollectedAtResidence: $scope.viewApp.CollectAtResidence,
-				ResidenceServices: $scope.viewApp.ResidenceServices
+				NeedLodging: 			 (typeof($scope.viewApp.NeedLodging) === 'undefined' ? false : true),
+				NeedMeals: 				 (typeof($scope.viewApp.NeedMeals) === 'undefined' ? false : true),
+				NeedOther: 				 (typeof($scope.viewApp.NeedOther) === 'undefined' ? false : true),
+				TripAdded: 				  $scope.viewApp.TripAdded,
+				CoordinatorNotified:      $scope.viewApp.CoordinatorNotified,
+				MedEvacInsurance: 		  $scope.viewApp.MedEvacInsurance,
+				VolunteerWaiver:          $scope.viewApp.VolunteerWaiver,
+				AdditionalInfo: 	      $scope.viewApp.AdditionalInfo
 			});
-			/*dataAccess.completeApplication($scope.appId)
+			dataAccess.completeApplication($scope.appId, extendedForm)
 				.then(function(newStatus) {
 					console.log('app completed');
 					$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
 					init();
 				}, function(err) {
 					console.log('error');
-				});*/
+				});
 		}
 
 		function getApplicationValues() {

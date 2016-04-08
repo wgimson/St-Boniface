@@ -160,14 +160,55 @@ exports.approveApplication = function(req, res) {
 
 exports.completeApplication = function(req, res) {
 	var id = req.params.id;
-	Application.update({ _id: id}, { $set: { AppStatus: 3 }}, function(err, app) {
+	var DateOfBirth 			 = req.body.DateOfBirth,
+		Cell 					 = req.body.Cell,
+		Email 					 = req.body.Email,
+		EmergencyContact 		 = req.body.EmergencyContact,
+		EmergencyContactCell 	 = req.body.EmergencyContactCell,
+		PassportNumber 			 = req.body.PassportNumber,
+		PassportCountry 		 = req.body.PassportCountry,
+		IsInternationalVisitor   = req.body.IsInternationalVisitor,
+		HasVisitorHandbook 		 = req.body.HasVisitorHandbook,
+		FeesCollectedAtResidence = req.body.FeesCollectedAtResidence,
+		NeedLodging 			 = req.body.NeedLodging,
+		NeedMeals 				 = req.body.NeedMeals,
+		NeedOther 				 = req.body.NeedOther,
+		TripAdded 				 = req.body.TripAdded,
+		CoordinatorNotified 	 = req.body.CoordinatorNotified,
+		MedEvacInsurance 		 = req.body.MedEvacInsurance,
+		VolunteerWaiver 		 = req.body.VolunteerWaiver,
+		AdditionalInfo 			 = req.body.AdditionalInfo
+
+	Application.update({ _id: id}, { $set: 
+		{ 
+			AppStatus 				: 3,
+			DateOfBirth 			: DateOfBirth,
+			Cell 					: Cell,
+			Email 					: Email,
+			EmergencyContact 		: EmergencyContact,
+			EmergencyContactCell	: EmergencyContactCell,
+			PassportNumber			: PassportNumber,
+			PassportCountry         : PassportCountry,
+			IsInternationalVisitor  : IsInternationalVisitor,
+			HasVisitorHandbook      : HasVisitorHandbook,
+			FeesCollectedAtResidence: FeesCollectedAtResidence,
+			NeedLodging				: NeedLodging,
+			NeedMeals    			: NeedMeals,
+			NeedOther 				: NeedOther,
+			TripAdded 				: TripAdded,
+			CoordinatorNotified		: CoordinatorNotified,
+			MedEvacInsurance 		: MedEvacInsurance,
+			VolunteerWaiver 		: VolunteerWaiver,
+			AdditionalInfo 			: AdditionalInfo
+		}
+	}, function(err, app) {
 	     	if (err) {
 	     		console.log('Back End Error: ' + err.message);
 	     		res.status(500).json(err);
 	     	}
 	     	console.log('application completed');
 	     	res.status(200).json({ newStatus: 3});
-	     });
+	});
 };
 
 exports.finalizeApplication = function(req, res) {

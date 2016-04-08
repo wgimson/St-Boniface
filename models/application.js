@@ -97,6 +97,60 @@ var appSchema = new Schema({
 	},
 	AppStatus: {
 		type: Number
+	},
+	DateOfBirth: {
+		type: Date
+	},
+	Cell: {
+		type: String
+	},
+	Email: {
+		type: String
+	},
+	EmergencyContact: {
+		type: String
+	},
+	EmergencyContactCell: {
+		type: String
+	},
+	PassportNumber: {
+		type: String
+	},
+	PassportCountry: {
+		type: String
+	},
+	IsInternationalVisitor: {
+		type: Boolean
+	},
+	HasVisitorHandbook: {
+		type: Boolean
+	},
+	FeesCollectedAtResidence: {
+		type: Boolean
+	},
+	NeedLodging: {
+		type: Boolean
+	},
+	NeedMeals: {
+		type: Boolean
+	},
+	NeedOther: {
+		type: Boolean
+	},
+	TripAdded: {
+		type: Boolean
+	},
+	CoordinatorNotified: {
+		type: Boolean
+	},
+	MedEvacInsurance: {
+		type: Boolean
+	},
+	VolunteerWaiver: {
+		type: Boolean
+	},
+	AdditionalInfo: {
+		type: String
 	}
 }, { collection: 'Applications' });
 

@@ -73,8 +73,8 @@
 						});
 		};
 
-		var completeApplication = function(appId) {
-			return $http.post('../api/applications/complete/id/' + appId)
+		var completeApplication = function(appId, extendedFrm) {
+			return $http.post('../api/applications/complete/id/' + appId, extendedFrm)
 						.then(function(response) {
 							return response.data.newStatus;
 						}, function(err) {
