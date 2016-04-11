@@ -246,7 +246,12 @@
 			$scope.denyFunc = actionObj.rejectFunction;
 		}
 
-
+		function setExtendedView(appStatusId) {
+			var appStatus = appUtilities.resolveAppStatus(appStatusId);
+			if (appStatus === 'Completed' || appStatus === 'Finalized')
+				return true;
+			return false;
+		}
 
 		function init() {
 			$scope.readyToComplete = false;
@@ -274,6 +279,7 @@
 				  	$scope.viewApp = application;
 				  	$scope.Visitors = application.Visitors;
 					setButtonScope($scope.status);
+					$scope.displayExtended = setExtendedView($scope.status);
 				  }, function(error) {
 				  	console.log('Could not retrieve application by id: ' + error);
 				  });
