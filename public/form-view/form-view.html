@@ -169,7 +169,8 @@
 		  			<label>Special Routing Information</label>
 				</div>
 				<div class="col-md-4">
-					<textarea class="txt-info" ng-model="viewApp.SpecialRoutingInfo" readonly="true"></textarea>
+					<textarea class="txt-info" ng-model="viewApp.SpecialRoutingInfo" id="txtSpecialRouting" 
+					          rows="2" readonly="true"></textarea>
 				</div>
 			</fieldset>
 	  	</div>
@@ -569,15 +570,16 @@
 			<div class="col-md-3">
 					<label>Passport Issuing Nation</label>
 			</div>
+			<!-- TODO - COME BACK TO THIS -->
 			<div class="col-md-3">
 			    <label>
-			      <input type="radio" name="PassportIsUS" class="app-radio" id="PassportIsUS" ng-value="true"
-				         ng-disabled="true" ng-model="viewApp.Pass" ng-checked="{{ viewApp.PassportCountry === 'US' }}">
+			      <input type="radio" name="PassportIsUS2" class="app-radio" id="PassportIsUS2" ng-value="true"
+				         ng-disabled="true" ng-model="viewApp.PassportCountry" ng-checked="{{ viewApp.PassportCountry === 'US' }}">
 			      US
 			    </label>
 			    <label>
-			      <input type="radio" name="PassportIsUS" class="app-radio" id="PassportIsUS" ng-value="false"
-				         ng-disabled="true" ng-model="viewApp.Pass" ng-checked="{{ viewApp.PassportCountry !== 'US' }}">
+			      <input type="radio" name="PassportIsUS2" class="app-radio" id="PassportIsUS2" ng-value="false"
+				         ng-disabled="true" ng-model="viewApp.PassportCountry" ng-checked="{{ viewApp.PassportCountry !== 'US' }}">
 			      Other
 			    </label>
 			</div>
@@ -598,12 +600,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioIsInternational" id="radioIsInternational" 
-					      		 ng-model="viewApp.isInternational" ng-value="true">
+					      		 ng-model="viewApp.IsInternationalVisitor" ng-value="true" ng-disabled="true"
+					      		 ng-checked="{{ viewApp.IsInternationalVisitor }}">
 					      International
 					    </label>
 					    <label>
 					      <input type="radio" name="radioIsInternational" id="radioIsInternational" 
-					      		 ng-model="viewApp.isInternational" ng-value="false">
+					      		 ng-model="viewApp.IsInternationalVisitor" ng-value="false" ng-disabled="true"
+					      		ng-checked="{{ !viewApp.IsInternationalVisitor }}">
 					      Domestic
 					    </label>
 					</div>
@@ -613,12 +617,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioVisitorHandbook" class="app-radio" id="radioVisitorHandbook" 
-					      	     ng-model="viewApp.VisitorHandbook" ng-value="true">
+					      	     ng-model="viewApp.VisitorHandbook" ng-value="true" ng-disabled="true" 
+					      	     ng-checked="{{ viewApp.VisitorHandbook }}">
 					      Yes
 					    </label>
 					    <label>
 					      <input type="radio" name="radioVisitorHandbook" class="app-radio" id="radioVisitorHandbook" 
-					      		 ng-model="viewApp.VisitorHandbook" ng-value="false">
+					      		 ng-model="viewApp.VisitorHandbook" ng-value="false" ng-disabled="true" 
+					      	     ng-checked="{{ !viewApp.VisitorHandbook }}">
 					      No
 					    </label>
 					</div>
@@ -632,12 +638,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioCollectAtResidence" class="app-radio" id="radioCollectAtResidence" 
-					      	     ng-model="viewApp.CollectAtResidence" ng-value="true">
+					      	     ng-model="viewApp.FeesCollectedAtResidence" ng-value="true" ng-disabled="true" 
+					      	     ng-checked="{{ viewApp.FeesCollectedAtResidence }}">
 					      Yes
 					    </label>
 					    <label>
 					      <input type="radio" name="radioCollectAtResidence" class="app-radio" id="radioCollectAtResidence" 
-					      		 ng-model="viewApp.CollectAtResidence" ng-value="false">
+					      		 ng-model="viewApp.FeesCollectedAtResidence" ng-value="false" ng-disabled="true" 
+					      	     ng-checked="{{ !viewApp.FeesCollectedAtResidence }}">
 					      No
 					    </label>
 					</div>
@@ -647,17 +655,20 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="checkbox" class="app-radio" id="radioServicesLodging" 
-					      		 ng-model="viewApp.NeedLodging" ng-value="lodging">
+					      		 ng-model="viewApp.NeedLodging" ng-value="lodging" ng-disabled="true"
+					      		 ng-checked="{{ viewApp.NeedOther }}">
 					      Lodging
 					    </label>
 					    <label>
 					      <input type="checkbox"class="app-radio" id="radioServicesMeals" 
-					      		 ng-model="viewApp.NeedMeals" ng-value="meals">
+					      		 ng-model="viewApp.NeedMeals" ng-value="meals" ng-disabled="true"
+					      		 ng-checked="{{ viewApp.NeedOther }}">
 					      Meals
 					    </label>
 					    <label>
 					      <input type="checkbox" class="app-radio" id="radioServicesOther" 
-					      		 ng-model="viewApp.NeedOther" ng-value="other">
+					      		 ng-model="viewApp.NeedOther" ng-value="other" ng-disabled="true"
+					      		 ng-checked="{{ viewApp.NeedOther }}">
 					      Other
 					    </label>
 					</div>
@@ -671,12 +682,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioTripAdded" class="app-radio" id="radioTripAdded" 
-					      	     ng-model="viewApp.TripAdded" ng-value="true">
+					      	     ng-model="viewApp.TripAdded" ng-value="true" ng-disabled="true" 
+					      	     ng-checked="{{ viewApp.TripAdded }}">
 					      Yes
 					    </label>
 					    <label>
 					      <input type="radio" name="radioTripAdded" class="app-radio" id="radioTripAdded" 
-					      		 ng-model="viewApp.TripAdded" ng-value="false">
+					      		 ng-model="viewApp.TripAdded" ng-value="false" ng-disabled="true" 
+					      	     ng-checked="{{ !viewApp.TripAdded }}">
 					      No
 					    </label>
 					</div>
@@ -686,12 +699,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioCoordinatorNotified" class="app-radio" id="radioCoordinatorNotified" 
-					      	     ng-model="viewApp.CoordinatorNotified" ng-value="true">
+					      	     ng-model="viewApp.CoordinatorNotified" ng-value="true" ng-disabled="true" 
+					      	     ng-checked="{{ viewApp.CoordinatorNotified }}">
 					      Yes
 					    </label>
 					    <label>
 					      <input type="radio" name="radioCoordinatorNotified" class="app-radio" id="radioCoordinatorNotified" 
-					      		 ng-model="viewApp.CoordinatorNotified" ng-value="false">
+					      		 ng-model="viewApp.CoordinatorNotified" ng-value="false" ng-disabled="true" 
+					      	     ng-checked="{{ !viewApp.CoordinatorNotified }}">
 					      No
 					    </label>
 					</div>
@@ -705,12 +720,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioMedEvacInsurance" class="app-radio" id="radioMedEvacInsurance" 
-					      	     ng-model="viewApp.MedEvacInsurance" ng-value="true">
+					      	     ng-model="viewApp.MedEvacInsurance" ng-value="true" ng-disabled="true" 
+					      	     ng-checked="{{ viewApp.MedEvacInsurance }}">
 					      Yes
 					    </label>
 					    <label>
 					      <input type="radio" name="radioMedEvacInsurance" class="app-radio" id="radioMedEvacInsurance" 
-					      		 ng-model="viewApp.MedEvacInsurance" ng-value="false">
+					      		 ng-model="viewApp.MedEvacInsurance" ng-value="false" ng-disabled="true" 
+					      	     ng-checked="{{ !viewApp.MedEvacInsurance }}">
 					      No
 					    </label>
 					</div>
@@ -720,12 +737,14 @@
 					<div class="col-md-3">
 						<label>
 					      <input type="radio" name="radioVolunteerWaiver" class="app-radio" id="radioVolunteerWaiver" 
-					      	     ng-model="viewApp.VolunteerWaiver" ng-value="true">
+					      	     ng-model="viewApp.VolunteerWaiver" ng-value="true" ng-disabled="true" 
+					      	     ng-checked="{{ viewApp.VolunteerWaiver }}">
 					      Yes
 					    </label>
 					    <label>
 					      <input type="radio" name="radioVolunteerWaiver" class="app-radio" id="radioVolunteerWaiver" 
-					      		 ng-model="viewApp.VolunteerWaiver" ng-value="false">
+					      		 ng-model="viewApp.VolunteerWaiver" ng-value="false" ng-disabled="true" 
+					      	     ng-checked="{{ !viewApp.VolunteerWaiver }}">
 					      No
 					    </label>
 					</div>
@@ -740,7 +759,8 @@
 			  			<label>Other Trip Information (e.g. any special requests for St. Boniface to coordinate additional travel needs or site visits</label>
 					</div>
 					<div class="col-md-8">
-						<textarea class="form-control" rows="2" id="txtAdditionalInfo"  ng-model="viewApp.AdditionalInfo"></textarea>
+						<textarea class="form-control" rows="2" id="txtAdditionalInfo" 
+						readonly="true" ng-model="viewApp.AdditionalInfo"></textarea>
 					</div>
 				</fieldset>
 		</fieldset>
