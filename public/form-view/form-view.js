@@ -168,16 +168,16 @@
 				      });
 		}
 
-		function submitApplication() {
+		/*function submitApplication() {
 			alert('submit for: ' + $scope.appId)
-			/*var appVals = getApplicationValues();
+			var appVals = getApplicationValues();
 			dataAccess.submitApplication(appVals)
 				      .then(function(reponse) {
 				      	console.log('app submitted');
 				      }, function(err) {
 				      	console.log('error');
-				      });*/			
-		}
+				      });		
+		}*/
 
 		function completeApplication() {
 			$scope.readyToComplete = true;
@@ -248,8 +248,10 @@
 
 		function setExtendedView(appStatusId) {
 			var appStatus = appUtilities.resolveAppStatus(appStatusId);
-			if (appStatus === 'Completed' || appStatus === 'Finalized')
+			if (appStatus === 'Completed' || appStatus === 'Finalized') {
+				$scope.viewApp.DateOfBirth = dataFormatter.formatDate($scope.viewApp.DateOfBirth);
 				return true;
+			}
 			return false;
 		}
 
