@@ -18,13 +18,13 @@
 		// PRIVATE
 		var ctrl = this;
 		var userInfo;
-		//ctrl.dataPickerElems = ['requestDate'];
+		ctrl.datePickerElems = ['requestDate', 'dateOfBirthExt'];
 
-		/*function makeDatePickers() {
-			dataPickerElems.forEach(function(elem) {
+		function makeDatePickers() {
+			ctrl.datePickerElems.forEach(function(elem) {
 				appUtilities.makeDatePicker(elem);
 			});
-		}*/
+		}
 
 		function getAdminAction(appStatus) {
 			switch (appStatus) {
@@ -263,7 +263,7 @@
 			$scope.displayFrmStatus = true;
 			userInfo = userSession.getUserSession();
 			$scope.viewApplication($scope.appId);
-			//makeDatePickers();
+			makeDatePickers();
 			//$scope.frmStatus = appUtilities.resolveAppStatusMessage(newStatus);
 		}
 
