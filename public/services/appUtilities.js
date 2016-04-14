@@ -61,7 +61,7 @@
 		return {
 			resolveAppStatus        : resolveAppStatus,
 			resolveAppStatusMessage : resolveAppStatusMessage,
-			makeDatePickerElem 		: makeDatePicker,
+			makeDatePicker 		: makeDatePicker,
 			makeDatePickerElem 		: makeDatePickerElem,
 			validateCurrency 		: validateCurrency,
 			makeCurrency 			: makeCurrency,
