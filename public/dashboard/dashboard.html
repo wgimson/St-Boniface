@@ -1,11 +1,16 @@
 <!--<nav-bar></nav-bar>-->
 <div class="container">
   <ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="#/Dashboard/Submitted">Submitted</a></li>
-    <li role="presentation"><a href="#/Dashboard/Approved">Approved</a></li>
-    <li role="presentation"><a href="#/Dashboard/Completed">Completed</a></li>
-    <li role="presentation"><a href="#/Dashboard/Finalized">Finalized</a></li>
-    <li role="presentation"><a href="#/Dashboard/Rejected">Rejected</a></li>
+    <li role="presentation" ng-click="makeNavActive()" class="{{activeTab == 0 ? 'active' : ''}}">
+      <a href="#/Dashboard/Submitted">Submitted</a></li>
+    <li role="presentation" ng-click="makeNavActive()" class="{{ activeTab == 1 ? 'active' : '' }}">
+      <a href="#/Dashboard/Approved">Approved</a></li>
+    <li role="presentation" ng-click="makeNavActive()" class="{{ activeTab == 2 ? 'active' : '' }}">
+      <a href="#/Dashboard/Completed">Completed</a></li>
+    <li role="presentation" ng-click="makeNavActive()" class="{{ activeTab == 3 ? 'active' : '' }}">
+      <a href="#/Dashboard/Finalized">Finalized</a></li>
+    <li role="presentation" ng-click="makeNavActive()" class="{{ activeTab == 4 ? 'active' : '' }}">
+      <a href="#/Dashboard/Rejected">Rejected</a></li>
   </ul>
 </div>	
 

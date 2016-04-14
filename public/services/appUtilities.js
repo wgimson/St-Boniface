@@ -54,13 +54,18 @@
 			return '$' + amt;
 		}
 
+		var getUrlSegmentFromEnd = function(path, segmentIndex) {
+			return path.split('/').slice(segmentIndex)[0];
+		}
+
 		return {
-			resolveAppStatus: 		 resolveAppStatus,
-			resolveAppStatusMessage: resolveAppStatusMessage,
-			makeDatePicker:          makeDatePicker,
-			makeDatePickerElem: 	 makeDatePickerElem,
-			validateCurrency:        validateCurrency,
-			makeCurrency: 			 makeCurrency
+			resolveAppStatus        : resolveAppStatus,
+			resolveAppStatusMessage : resolveAppStatusMessage,
+			makeDatePickerElem 		: makeDatePicker,
+			makeDatePickerElem 		: makeDatePickerElem,
+			validateCurrency 		: validateCurrency,
+			makeCurrency 			: makeCurrency,
+			getUrlSegmentFromEnd 	: getUrlSegmentFromEnd
 		};
 	}];
 
