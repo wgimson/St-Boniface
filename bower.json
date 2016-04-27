@@ -13,6 +13,7 @@
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "~3.3.0",
     "jquery": "~2.2.0",
-    "jquery-ui": "^1.11.4"
+    "jquery-ui": "^1.11.4",
+    "jqueryui-timepicker-addon": "jQuery-Timepicker-Addon#^1.6.3"
   }
 }
