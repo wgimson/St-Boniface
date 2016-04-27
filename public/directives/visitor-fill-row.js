@@ -1,5 +1,5 @@
 (function(jq) {
-	var visitorFillRow = [function visitorRow() {
+	var visitorFillRow = ['dataFormatter', function visitorRow(dataFormatter) {
 		//var rowCount = 0;
 
 		/*var makeRowDatePickers = function(parent) {
@@ -10,6 +10,20 @@
 			appUtilities.makeDatePickerElem(arrive);
 			appUtilities.makeDatePickerElem(depart);
 		};*/
+		var dir = this;
+		dir.dateFields = ['arrivalDateAndTime', 'departureDateAndTime'];
+
+		function formatDateTimes(elem, visitor) {
+			dir.dateFields.forEach(function(field) {
+				jq(elem)
+					.find("." + field)
+					.each(function(index) {
+						var $this = jq(this);
+						var unformattedDate = field === 'arrivalDateAndTime' ? visitor.arrivalDate : visitor.departureDate;
+						$this.val(dataFormatter.formatDateTime(unformattedDate));
+					});
+			});
+		}
 
 		return {
 			restrict: 'EA',
@@ -18,6 +32,8 @@
 			link: function(scope, element, attrs) {
 				//makeRowDatePickers(element);
 				//rowCount++;
+				var curVisitor = scope.visitor;
+				formatDateTimes(element, curVisitor);
 				visitor = '@'
 			}
 		}

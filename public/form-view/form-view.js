@@ -18,11 +18,18 @@
 		// PRIVATE
 		var ctrl = this;
 		var userInfo;
-		ctrl.datePickerElems = ['requestDate', 'dateOfBirthExt'];
+		ctrl.datePickerElems = ['dateOfBirthExt', 'requestDate'];
+		ctrl.dateTimePickerElems = [];
 
 		function makeDatePickers() {
 			ctrl.datePickerElems.forEach(function(elem) {
 				appUtilities.makeDatePicker(elem);
+			});
+		}
+
+		function makeDateTimePickers() {
+			ctrl.dateTimePickerElems.forEach(function(elem) {
+				appUtilities.makeDateTimePicker(elem);
 			});
 		}
 

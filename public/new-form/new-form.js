@@ -13,16 +13,24 @@
 	.controller('NewFormCtrl', ['$scope', 'dataAccess', 'userSession', 'appUtilities', function($scope, dataAccess, userSession, appUtilities) {
 		// PRIVATE 
 		var ctrl = this;
-		ctrl.datePickerElems = ['requestDate' /*Add date fields here*/];
+		ctrl.datePickerElems = ['requestDate'/*Add date fields here*/];
+		ctrl.dateTimePickerElems = [/*Add date fields here*/];
 
 		function makeDatePickers() {
 			ctrl.datePickerElems.forEach(function(elemClass) {
 				appUtilities.makeDatePicker(elemClass);
 			});
 		}
+
+		function makeDateTimePickers() {
+			ctrl.dateTimePickerElems.forEach(function(elemClass) {
+				appUtilities.makeDateTimePicker(elemClass);
+			});
+		}
 		
 		function init() {
 			makeDatePickers();
+			makeDateTimePickers();
 		}
 
 		function getFrmVisitors() {

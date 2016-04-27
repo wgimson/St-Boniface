@@ -74,8 +74,11 @@ var appSchema = new Schema({
 	FrenchSpeaking: {
 		type: Boolean
 	},
-	Visitors: {
+	/*Visitors: {
 		type: [Schema.Types.Mixed]
+	},*/
+	Visitors: {
+		type: [{ maleOrFemale: String, departureDate: Date, arrivalDate: Date, name: String }]
 	},
 	VisitorWillStay: {
 		type: Boolean

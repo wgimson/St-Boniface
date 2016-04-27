@@ -35,14 +35,17 @@
 			}
 		};
 
+		var makeDateTimePicker = function(elemClass) {
+			jq("." + elemClass + "").datetimepicker();
+		};
+
 		var makeDatePicker = function(elemClass) {
-			//jq("." + elemClass + "").datetimepicker();
 			jq("." + elemClass + "").datepicker();
 		};
 
 		var makeDatePickerElem = function(elem) {
-			//elem.datetimepicker();
-			elem.datepicker();
+			elem.datetimepicker();
+			//elem.datepicker();
 		};
 
 		var validateCurrency = function(money) {
@@ -67,7 +70,8 @@
 			makeDatePickerElem 		: makeDatePickerElem,
 			validateCurrency 		: validateCurrency,
 			makeCurrency 			: makeCurrency,
-			getUrlSegmentFromEnd 	: getUrlSegmentFromEnd
+			getUrlSegmentFromEnd 	: getUrlSegmentFromEnd,
+			makeDateTimePicker      : makeDateTimePicker
 		};
 	}];
 
