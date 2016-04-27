@@ -530,3 +530,225 @@
 		</fieldset>
 	</form>
 </div>
+
+<div class="container" ng-show="status == 3 || status == 4">
+	<form>
+		<fieldset class="form-group well form-fieldset">
+			<legend class="form-legend">Visitor Information</legend>
+			<div class="row">
+				<div class="col-md-6">
+		  		<label for="dateOfBirth">Date of Birth</label>
+		    	<input type="text" class="form-control txt-first-form" id="dateOfBirth" 
+		    	       ng-model="viewApp.DateOfBirth" readonly="true">
+				</div>
+			<div class="col-md-6">
+			    <label for="cellPhoneNumber">Cell Phone Number</label>
+			    <input type="text" class="form-control txt-first-form" id="cellPhoneNumber" 
+			    	   ng-model="viewApp.cellPhoneNumber">
+			</div>
+			<div class="col-md-6">
+			    <label for="emailAddress">Email Address</label>
+			    <input type="text" class="form-control txt-first-form" id="emailAddress" 
+			           ng-model="viewApp.emailAddress">
+			</div>
+			<div class="col-md-6">
+			    <label for="emergencyContact">Emergency Contact</label>
+			    <input type="text" class="form-control txt-first-form" id="emergencyContact" 
+			    	   ng-model="viewApp.emergencyContact">
+			</div>
+			<div class="col-md-6">
+			    <label for="emergencyContactCell">Emergency Contact Cell</label>
+			    <input type="text" class="form-control txt-first-form" id="emergencyContactCell" 
+			    	   ng-model="viewApp.emergencyContactCell">
+			</div>
+			<div class="col-md-6">
+			    <label for="passNumber">Passport Number</label>
+			    <input type="text" class="form-control txt-first-form" id="passNumber" 
+			    	   ng-model="viewApp.passNumber">
+			</div>
+			<div class="col-md-3">
+					<label>Passport Issuing Nation</label>
+			</div>
+			<div class="col-md-3">
+			    <label>
+			      <input type="radio" name="PassportIsUS" class="app-radio" id="PassportIsUS" 
+			             ng-model="viewApp.PassportIsUS" ng-value="true" ng-click="togglePassportCountry()">
+			      US
+			    </label>
+			    <label>
+			      <input type="radio" name="PassportIsUS" class="app-radio" id="PassportIsUS" 
+			             ng-model="viewApp.PassportIsUS" ng-value="false" ng-click="togglePassportCountry()">
+			      Other
+			    </label>
+			</div>
+			<div class="col-md-6" ng-show="showPassportCountry">
+			    <label for="passportCountry">Passport Country</label>
+			    <input type="text" class="form-control txt-first-form" id="passportCountry" 
+			    	   ng-model="viewApp.passportCountry">
+			</div>
+			</div>
+		</fieldset>
+		<fieldset class="form-group well form-fieldset">
+			<legend class="form-legend">Trip Information</legend>	
+			<div class="row">
+				<fieldset class="fieldset-group">
+			  		<div class="col-md-3">
+			  			<label>Domestic or International Visitor</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioIsInternational" id="radioIsInternational" 
+					      		 ng-model="viewApp.isInternational" ng-value="true">
+					      International
+					    </label>
+					    <label>
+					      <input type="radio" name="radioIsInternational" id="radioIsInternational" 
+					      		 ng-model="viewApp.isInternational" ng-value="false">
+					      Domestic
+					    </label>
+					</div>
+					<div class="col-md-3">
+			  			<label>Visitor Handbook?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioVisitorHandbook" class="app-radio" id="radioVisitorHandbook" 
+					      	     ng-model="viewApp.VisitorHandbook" ng-value="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="radioVisitorHandbook" class="app-radio" id="radioVisitorHandbook" 
+					      		 ng-model="viewApp.VisitorHandbook" ng-value="false">
+					      No
+					    </label>
+					</div>
+				</fieldset>
+			</div>
+			<div class="row">
+		  		<fieldset class="fieldset-group">
+			  		<div class="col-md-3">
+			  			<label>Fees to be Collected at Residence?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioCollectAtResidence" class="app-radio" id="radioCollectAtResidence" 
+					      	     ng-model="viewApp.CollectAtResidence" ng-value="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="radioCollectAtResidence" class="app-radio" id="radioCollectAtResidence" 
+					      		 ng-model="viewApp.CollectAtResidence" ng-value="false">
+					      No
+					    </label>
+					</div>
+			  		<div class="col-md-3">
+			  			<label>What Services Will the Residence Provide(Check All that Apply)?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="checkbox" class="app-radio" id="radioServicesLodging" 
+					      		 ng-model="viewApp.NeedLodging" ng-value="lodging">
+					      Lodging
+					    </label>
+					    <label>
+					      <input type="checkbox"class="app-radio" id="radioServicesMeals" 
+					      		 ng-model="viewApp.NeedMeals" ng-value="meals">
+					      Meals
+					    </label>
+					    <label>
+					      <input type="checkbox" class="app-radio" id="radioServicesOther" 
+					      		 ng-model="viewApp.NeedOther" ng-value="other">
+					      Other
+					    </label>
+					</div>
+				</fieldset>
+		  	</div>
+		  	<div class="row">
+		  		<fieldset class="fieldset-group">
+			  		<div class="col-md-3">
+			  			<label>Trip Added to Staff Residence Calendar with Brief Bio of Visitor?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioTripAdded" class="app-radio" id="radioTripAdded" 
+					      	     ng-model="viewApp.TripAdded" ng-value="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="radioTripAdded" class="app-radio" id="radioTripAdded" 
+					      		 ng-model="viewApp.TripAdded" ng-value="false">
+					      No
+					    </label>
+					</div>
+					<div class="col-md-3">
+			  			<label>Residence Coordinator Notified?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioCoordinatorNotified" class="app-radio" id="radioCoordinatorNotified" 
+					      	     ng-model="viewApp.CoordinatorNotified" ng-value="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="radioCoordinatorNotified" class="app-radio" id="radioCoordinatorNotified" 
+					      		 ng-model="viewApp.CoordinatorNotified" ng-value="false">
+					      No
+					    </label>
+					</div>
+				</fieldset>
+		  	</div>
+		  	<div class="row">
+		  		<fieldset class="fieldset-group">
+			  		<div class="col-md-3">
+			  			<label>Medical Evacuation Insurance?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioMedEvacInsurance" class="app-radio" id="radioMedEvacInsurance" 
+					      	     ng-model="viewApp.MedEvacInsurance" ng-value="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="radioMedEvacInsurance" class="app-radio" id="radioMedEvacInsurance" 
+					      		 ng-model="viewApp.MedEvacInsurance" ng-value="false">
+					      No
+					    </label>
+					</div>
+					<div class="col-md-3">
+			  			<label>Volunteer Liability Waiver?</label>
+					</div>
+					<div class="col-md-3">
+						<label>
+					      <input type="radio" name="radioVolunteerWaiver" class="app-radio" id="radioVolunteerWaiver" 
+					      	     ng-model="viewApp.VolunteerWaiver" ng-value="true">
+					      Yes
+					    </label>
+					    <label>
+					      <input type="radio" name="radioVolunteerWaiver" class="app-radio" id="radioVolunteerWaiver" 
+					      		 ng-model="viewApp.VolunteerWaiver" ng-value="false">
+					      No
+					    </label>
+					</div>
+				</fieldset>
+		  	</div>
+		</fieldset>
+		<fieldset class="form-group well form-fieldset">
+			<legend class="form-legend">Accounting Information</legend>
+			<div class="row">
+		  		<fieldset class="fieldset-group">
+			  		<div class="col-md-4">
+			  			<label>Other Trip Information (e.g. any special requests for St. Boniface to coordinate additional travel needs or site visits</label>
+					</div>
+					<div class="col-md-8">
+						<textarea class="form-control" rows="2" id="txtAdditionalInfo"  ng-model="viewApp.AdditionalInfo"></textarea>
+					</div>
+				</fieldset>
+		</fieldset>
+		<fieldset class="form-group well form-fieldset">
+			<div class="row">
+				<div class="col-md-12">
+					<button class="btn btn-info float-right" ng-click="submitForCompletion()">Submit for Completion</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
