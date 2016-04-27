@@ -30,4 +30,8 @@ angular.module('MyApp.LogIn', ['ngRoute'])
 			      	console.log('Could not retrieve applicant login: ' + err);
 			      });
 	};
+
+	$scope.loginAsGuest = function() {
+		$location.url('NewForm/');
+	};
 }]);

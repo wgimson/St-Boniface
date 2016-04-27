@@ -65,8 +65,8 @@
 }
 
 .application-panel {
-  width: 50%;
-  margin-left: 20%;
+  width: 75%;
+  margin-left: 15%;
 }
 
 #welcome-header {
@@ -100,4 +100,8 @@
 
 .txt-info {
   width: 95%;
+}
+
+.nav-container {
+  margin-left: 15%;
 }

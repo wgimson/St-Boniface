@@ -5,6 +5,10 @@
 		  	return ((unformattedDate.getMonth() + 1) + '/' + unformattedDate.getDate() + '/' + unformattedDate.getFullYear());
 		};
 
+		var formatPhoneNumber = function(rawNumber) {
+			
+		}
+
 		return {
 			formatDate: formatDate
 		};

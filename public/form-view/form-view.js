@@ -18,10 +18,17 @@
 		// PRIVATE
 		var ctrl = this;
 		var userInfo;
+<<<<<<< HEAD
 		ctrl.datePickerElems = ['dateOfBirth'];
 
 		function makeDatePickers() {
 			datePickerElems.forEach(function(elem) {
+=======
+		ctrl.datePickerElems = ['requestDate', 'dateOfBirthExt'];
+
+		function makeDatePickers() {
+			ctrl.datePickerElems.forEach(function(elem) {
+>>>>>>> d95487faa755cf3fb2af148595f2aceb2fca3b11
 				appUtilities.makeDatePicker(elem);
 			});
 		}
@@ -168,16 +175,16 @@
 				      });
 		}
 
-		function submitApplication() {
+		/*function submitApplication() {
 			alert('submit for: ' + $scope.appId)
-			/*var appVals = getApplicationValues();
+			var appVals = getApplicationValues();
 			dataAccess.submitApplication(appVals)
 				      .then(function(reponse) {
 				      	console.log('app submitted');
 				      }, function(err) {
 				      	console.log('error');
-				      });*/			
-		}
+				      });		
+		}*/
 
 		function completeApplication() {
 			$scope.readyToComplete = true;
@@ -246,7 +253,14 @@
 			$scope.denyFunc = actionObj.rejectFunction;
 		}
 
-
+		function setExtendedView(appStatusId) {
+			var appStatus = appUtilities.resolveAppStatus(appStatusId);
+			if (appStatus === 'Completed' || appStatus === 'Finalized') {
+				$scope.viewApp.DateOfBirth = dataFormatter.formatDate($scope.viewApp.DateOfBirth);
+				return true;
+			}
+			return false;
+		}
 
 		function init() {
 			$scope.readyToComplete = false;
@@ -274,6 +288,7 @@
 				  	$scope.viewApp = application;
 				  	$scope.Visitors = application.Visitors;
 					setButtonScope($scope.status);
+					$scope.displayExtended = setExtendedView($scope.status);
 				  }, function(error) {
 				  	console.log('Could not retrieve application by id: ' + error);
 				  });
