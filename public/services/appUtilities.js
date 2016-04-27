@@ -36,10 +36,12 @@
 		};
 
 		var makeDatePicker = function(elemClass) {
+			//jq("." + elemClass + "").datetimepicker();
 			jq("." + elemClass + "").datepicker();
 		};
 
 		var makeDatePickerElem = function(elem) {
+			//elem.datetimepicker();
 			elem.datepicker();
 		};
 
@@ -61,7 +63,7 @@
 		return {
 			resolveAppStatus        : resolveAppStatus,
 			resolveAppStatusMessage : resolveAppStatusMessage,
-			makeDatePicker 		: makeDatePicker,
+			makeDatePicker 		    : makeDatePicker,
 			makeDatePickerElem 		: makeDatePickerElem,
 			validateCurrency 		: validateCurrency,
 			makeCurrency 			: makeCurrency,
